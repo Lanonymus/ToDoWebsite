@@ -2,12 +2,18 @@
 const express = require('express');
 const session = require('express-session');
 const app = express();
-// const sharp = require('sharp');
-
 
 app.use(express.static('public'));
 app.use(express.json({limit: '1mb'}));
-app.listen("0.0.0.0", () => console.log('Server Live at PORT 0.0.0.0'));
+
+const port = process.env.PGPORT || 3000;
+
+// Listen on `port` and 0.0.0.0
+app.listen(port, "0.0.0.0", function () {
+  => console.log('Server Live at PORT 0.0.0.0'))
+});
+
+
 // Ustawienie domyślnego silnika szablonów
 app.set('view engine', 'ejs');
 
@@ -30,11 +36,11 @@ app.use(session({
 // Przechowuj użytkowników w pamięci dla uproszczenia
 const { Pool } = require('pg');
 const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'postgres',
-    password: 'Benia8251078',
-    port: 5432,
+    user: POSTGRES_USER,
+    host: PGHOST,
+    database: POSTGRES_DB,
+    password: PGPASSWORD,
+    port: PGPORT
 });
 
 
