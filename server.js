@@ -7,7 +7,7 @@ const app = express();
 
 app.use(express.static('public'));
 app.use(express.json({limit: '1mb'}));
-app.listen(3000, () => console.log('Server Live at PORT 3000'));
+app.listen("0.0.0.0", () => console.log('Server Live at PORT 0.0.0.0'));
 // Ustawienie domyślnego silnika szablonów
 app.set('view engine', 'ejs');
 
