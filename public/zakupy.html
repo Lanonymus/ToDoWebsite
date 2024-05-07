@@ -1,0 +1,2036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="zakupy.css">
+    <script src="https://kit.fontawesome.com/51fdb09e8d.js" crossorigin="anonymous"></script>
+    <!-- CZCIONKI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Gloria+Hallelujah&family=Inconsolata:wght@200..900&family=Lexend:wght@100..900&family=Lilita+One&family=Permanent+Marker&family=Poiret+One&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="heading">
+        <a href="index.html" class="active">Lista Zadań</a>
+        <a href="zakupy.html">Lista Zakupów</a>
+
+    <div class="account_creation_container">
+            <div id="login_button" class="login" onclick="ShowLoginPage()">Zaloguj się</div>
+            <div class="sign_up" onclick="ShowSignUpPage()">Zarejestruj się</div>
+            <div class="User_profile" id="User_main_container">
+                <div class="login_icon" id="log_icon" onclick="show_more_profile()"></div>
+                <div class="User_information" id="user_info">
+                    <div class="User_name" id="User_profile_name"></div>
+                    <div class="User_email" id="User_profile_email"></div>
+                </div>
+                <div class="User_log_out" id="user_login_out" onclick="log_out()" ><i class="fa-solid fa-arrow-right-from-bracket" id="log_out_icon" style="color: #000000;"></i>&nbsp;&nbsp;Wyloguj się</div>
+
+            </div>                
+            <div class="login_page">
+    
+                <form action="./api" method="POST" id="login_form_data" onsubmit="event.preventDefault(); Login();"> 
+                    <div class="CloseLoginPage" onclick="ShowLoginPage()">
+                        <lord-icon
+                            src="https://cdn.lordicon.com/zxvuvcnc.json"
+                            trigger="hover"
+                            colors="primary:#e83a30"
+                            class="ClosePageButton"
+                            style="width:35px;height:35px">
+                        </lord-icon>
+                    </div>
+                    <div class="login_title_box">
+                        <div class="login_title">
+                            <i class="fa-solid fa-right-to-bracket" style="color: #5178d9; display: block; margin: auto;"></i>
+                            <div class="main_title">Witaj z powrotem
+                                <span>Zaloguj się na swoje konto!</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="login_info">
+                        <div id="login_requirement" class="email">
+                            <div class="class_title">E-mail</div>
+                            <input type="email" id="login_email" required>
+                            <i class="fa-solid fa-envelope" style="color: #d2d1dc;"></i>
+                        </div>
+                        <div id="login_requirement" class="password">
+                            <div class="class_title">Hasło</div>
+                            <input id="login_passwordInput" type="password" required>
+                            <i id="toggle_login_password" class="fas fa-eye" minlength="4" maxlength="8" size="10" ></i>
+                            <i class="fa-solid fa-lock" style="color: #d2d1dc;"></i>
+                        </div>
+                    </div>
+    
+                    <div class="button_box">
+                        <button class="login_to_account">
+                            Zaloguj się
+                            <i class="fa-solid fa-arrow-right" id="login_arrow_right" style="color: #ffffff;"></i>
+                        </button>
+                    </div>
+                </form>
+                    <hr>
+                    <div class="login_options">
+                        <div class="login_options_text">Zaloguj się za pomocą Google!</div>
+                        <div class="google"><svg id="login_google_icon" class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-10dohqv" focusable="false" aria-hidden="true" viewBox="0 0 48 48"><g id="GoogleIcon"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path></g></svg><div class="google_text">Continue with Google</div></div>
+                    </div>
+                </div>
+    
+    
+    
+            <div class="sign_up_page">
+                <form action="./api" method="POST" id="sign_up_form_data" onsubmit="event.preventDefault(); Register();">
+                    <div class="CloseSignupPage" onclick="ShowSignUpPage()">
+                        <lord-icon
+                            src="https://cdn.lordicon.com/zxvuvcnc.json"
+                            trigger="hover"
+                            colors="primary:#e83a30"
+                            class="ClosePageButton"
+                            style="width:35px;height:35px">
+                        </lord-icon>
+                    </div>
+    
+                    <div class="sign_up_title_box">
+                        <div class="sign_up_title">
+                            <i class="fa-solid fa-circle-user" style="color: #5178d9; display: block; margin: auto;"></i>
+                            <span>Stwórz Konto!</span>
+                        </div>
+                    </div>
+                    
+                    <div class="sign_up_info">
+                        <div id="sign_requirement" class="name">
+                            <div class="class_title">Nazwa</div>
+                            <input type="text" id="sign_up_name" name="User_Name" minlength="6" maxlength="12" required>
+                            <i class="fa-solid fa-user" style="color: #d2d1dc;"></i>
+                        </div>
+                        <div id="sign_requirement" class="email">
+                            <div class="class_title">E-mail</div>
+                            <input type="email" id="sign_up_email" name="E-mail" maxlength="27" required>
+                            <i class="fa-solid fa-envelope" style="color: #d2d1dc;"></i>
+                        </div>
+                        <div id="sign_requirement" class="password">
+                            <div class="class_title">Hasło</div>
+                            <input id="sign_up_passwordInput" type="password" minlength="4" maxlength="25" size="10" name="Password"  required>
+                            <i id="togglePassword" class="fas fa-eye" ></i>
+                            <i class="fa-solid fa-lock" style="color: #d2d1dc;"></i>
+                        </div>
+                        <div id="sign_requirement" class="date">
+                            <div class="class_title">Data Urodzenia</div>
+                            <input type="date" id="sign_up_date" name="Date" required>
+                        </div>
+                    </div>
+                    <div class="button_box">
+                        <button class="create_account" type="submit">
+                            Stwórz
+                            <i class="fa-solid fa-arrow-right" id="sign_up_arrow_right" style="color: #ffffff;"></i>
+                        </button>
+                    </div>
+                </form>
+                    <hr>
+                    <div class="sign_up_options">
+                        <div class="sign_up_options_text">Załóż konto za pomocą Google!</div>
+                        <div class="google"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-10dohqv" focusable="false" aria-hidden="true" viewBox="0 0 48 48"><g id="GoogleIcon"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path></g></svg><div class="google_text">Continue with Google</div></div>
+                    </div>
+            </div>
+            
+            <div class="Fetch_info" id="Account_Feedback"></div>
+            <i class="fa-solid fa-check" id="checkmark" style="color: #ffffff;"></i>
+            <i class="fa-solid fa-xmark" id="xmark" style="color: #ffffff;"></i>
+
+            <div class="settings_icon" onclick="ShowSettingsPage()">
+                <div class="settings_icon_box">
+                    <img src="Images/settings_BEST.svg" alt="change theme">
+                </div>
+            </div>
+
+            <div class="settings_page">
+                <form action="./api" method="POST" onsubmit="ChangeData(event)">
+                    <div class="settings_content">
+                        <div class="Edit_profile_text"> 
+                            <div class="arrow_left" onclick="ShowSettingsPage()"></div> 
+                            <div class="center_box">
+                                <div class="edit_title">Edit Profile</div>
+                            </div>
+                        </div>
+                        <label for="Profile_file">
+                            <div class="profile_img_box">
+                                <div class="profile_image"><img src="Images/pencil-edit-svgrepo-com.svg" alt="Profile Image"><input id="Profile_file" type="file" hidden></div>
+                                <div class="profile_Username"><span id="User_name_profile"></span></div>
+                            </div>
+                        </label>
+                        
+
+                        <div class="settings_info">
+                            <div class="settings_inputs">
+                                <div class="edit_email">
+                                    <label class="main_info" for="edit_email">E-mail Adress</label>
+                                    <input id="edit_email" type="email" maxlength="27" required placeholder="example@gmail.com">
+                                </div>
+                                <div class="edit_username">
+                                    <label class="main_info" for="edit_name">Username</label>
+                                    <input id="edit_name" type="text" minlength="6" maxlength="12" required placeholder="Jacob G">
+                                </div>
+                                <div class="edit_password">
+                                    <label class="main_info" for="edit_pw">Password</label>
+                                    <input id="edit_pw" type="password"  minlength="4" maxlength="25" size="10" name="Password"  required placeholder="12345">
+                                </div>
+                                <div class="birth_title">Data Urodzenia (Opcjonalne)</div>
+                                <div class="edit_birth_Date">
+                                    <br>
+                                    <div class="birthbox">
+                                        <label for="day">Day:</label>
+                                        <input id="day" type="text" minlength="2" maxlength="2" placeholder="07" max="10">
+                                    </div>
+                                    <div class="birthbox">
+                                        <label for="month">Month:</label>
+                                        <input id="month" type="text" minlength="2" maxlength="2" placeholder="04">
+                                    </div>
+                                    <div class="birthbox">
+                                        <label for="year">Year:</label>
+                                        <input id="year" type="text" minlength="2" maxlength="4" placeholder="2024">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button_box" id="SaveTheProfileData" onmouseover="play_animation('SaveTheProfileData', '.Animated_check_mark')">
+                            <button class="save_edited_data" type="submit" id="ChangedProfileData">Zapisz
+                                <lord-icon
+                                    class="Animated_check_mark"
+                                    src="https://cdn.lordicon.com/oqdmuxru.json"
+                                    colors="primary:#ffffff"
+                                    id="first_checkmark"
+                                    style="width:35px;height:27px">
+                                </lord-icon>
+                            </button>
+                        </div>
+                        <div class="button_box" id="SavedData" onmouseover="play_animation('SavedData', '.Animated_check_mark_2')">
+                            <button class="save_edited_data" type="submit" id="ChangedProfileData_2">Zapisano 
+                                <lord-icon 
+                                    src="https://cdn.lordicon.com/guqkthkk.json"
+                                    trigger="hover"
+                                    colors="primary:#ffffff"
+                                    class="Animated_check_mark_2"
+                                    id="second_checkmark"
+                                    style="width:23px;height:23px">
+                            </lord-icon>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="themes_settings_page">
+                <form action="./api" method="POST" id="change_theme_form_data" onsubmit="event.preventDefault(); ChangeTheme();">
+                    <div class="themes_content">
+                        <div class="themes_profile_text"> 
+                            <div class="arrow_left" onclick="ShowSettingsPageFromThemes()"></div> 
+                            <div class="center_box">
+                                <div class="themes_title">Edit Theme
+                                    <lord-icon
+                                        class="painting"
+                                        src="https://cdn.lordicon.com/pbhjpofq.json"
+                                        trigger="hover"
+                                        style="width:40px;height:40px">
+                                    </lord-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="themes_grid_box">
+                        <div class="themes_grid_rows">
+                            <div class="row">
+                                <div class="color" id="color_1"></div>
+                                <div class="color" id="color_2"></div>
+                                <div class="color" id="color_3"></div>
+                            </div>
+                            <div class="row">
+                                <div class="color" id="color_4"></div>
+                                <div class="color" id="color_5"></div>
+                                <div class="color" id="color_6"></div>
+                            </div>
+                            <div class="row">
+                                <div class="color" id="color_7"></div>
+                                <div class="color" id="color_8"></div>
+                                <div class="color" id="color_9"></div>
+                            </div>
+                            <div class="row">
+                                <div class="color" id="color_10"></div>
+                                <div class="color" id="color_11"></div>
+                                <div class="color" id="color_12"></div>
+                            </div>
+                            <div class="row">
+                                <div class="color" id="color_13"></div>
+                                <div class="color" id="color_14"></div>
+                                <div class="color" id="color_15"></div>
+                            </div>
+                            <div class="row">
+                                <div class="color" id="color_16"></div>
+                                <div class="color" id="color_17"></div>
+                                <div class="color" id="color_18"></div>
+                            </div>
+                            <div class="row" id="default_row" >
+                                <div class="color" id="color_19"></div>
+                                <div class="color" id="color_20"></div>
+                                <div class="color" id="color_21"></div>
+                            </div>
+                            <div class="row">
+                                <div class="color" id="color_22"></div>
+                                <div class="color" id="color_23"></div>
+                                <div class="color" id="color_24"></div>
+                            </div>
+                            <div class="row">
+                                <div class="color" id="color_25"></div>
+                                <div class="color" id="color_26"></div>
+                                <div class="color" id="color_27"></div>
+                            </div>
+                            <div class="row">
+                                <div class="color" id="color_28"></div>
+                                <div class="color" id="color_29"></div>
+                                <div class="color" id="color_30"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button_container">
+                        <div class="button_box_themes" id="SaveTheme" onmouseover="play_animation('SaveTheme', '.Animated_check_mark_theme')">
+                            <button class="save_edited_theme" type="submit" id="ChangedTheme">Zapisz
+                                <lord-icon
+                                    class="Animated_check_mark_theme"
+                                    src="https://cdn.lordicon.com/oqdmuxru.json"
+                                    colors="primary:#ffffff"
+                                    id="first_checkmark_theme"
+                                    style="width:35px;height:27px">
+                                </lord-icon>
+                            </button>
+                        </div>
+                        <div class="button_box_themes" id="SavedTheme" onmouseover="play_animation('SavedTheme', '.Animated_check_mark_saved_theme')">
+                            <button class="save_edited_theme" type="submit" id="ChangedTheme_2">Zapisano 
+                                <lord-icon 
+                                    src="https://cdn.lordicon.com/guqkthkk.json"
+                                    trigger="hover"
+                                    colors="primary:#ffffff"
+                                    class="Animated_check_mark_saved_theme"
+                                    id="second_checkmark_saved_theme"
+                                    style="width:23px;height:23px">
+                            </lord-icon>
+                        </button>
+                    </div>
+                </div>
+            </form>
+            </div>
+
+            <div class="sound_page">
+                <div class="sound_content">
+                    <div class="sound_settings_text"> 
+                        <div class="arrow_left" onclick="ShowSettingsPageFromSound()"></div> 
+                        <div class="center_box">
+                            <div class="sound_title">Customize Sound
+                                <lord-icon
+                                    class="painting"
+                                    src="https://cdn.lordicon.com/rttuqdqs.json"
+                                    trigger="hover"
+                                    style="width:60px;height:60px">
+                            </lord-icon>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="currnet_sound_box">
+                        <label id="currnet_sound_text" for="none">Aktualny dźwięk:&nbsp;&nbsp; </label>
+                        <div class="center_currnet_sound">
+                            <div class="currnet_sound" onclick="Showaudio()"></div>
+                        </div>
+                        <div class="currnet_sound_icon" onclick="play_audio()"></div>
+                    </div>
+
+                    <div class="sound_volume_box">
+                        <div class="volume_icon"></div>
+                        <input type="range" min="0" max="100" value="50" class="volume_slider">
+                        <div class="show_volume_procent">50%</div>
+                    </div>
+
+                    <div class="add_sound_box">
+                        <label id="sound_label" for="add_sound_input">Dodaj swój własny dźwięk</label>
+                        <input id="add_sound_input" type="file"  hidden>
+                        <label for="add_sound_input">
+                            <div class="add_sound_icon">
+                                <lord-icon
+                                    src="https://cdn.lordicon.com/jgnvfzqg.json"
+                                    trigger="hover"
+                                    style="width:40px;height:40px">
+                                </lord-icon>
+                        </div>
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="main_settings_page">
+                <div class="settings_columns">
+                    <div class="settings_go_back_box">
+                        <div class="arrow_left" onclick="ShowSettingsPage()"></div>
+                        <div class="centering_box">
+                            <div class="settings_title">Settings</div>
+                        </div> 
+                    </div>
+                    <div class="settings_rows">
+                        <div class="row_setting" onclick="ShowEditProfile()">
+                            <div id="settings_icon_profile" class="icon_in_settings" ></div>
+                            <div class="icon_title">Profile</div>
+                            <div class="go_into"></div>
+                        </div>
+                        <div class="row_setting" onclick="ShowEditThemes()">
+                            <div id="settings_icon_theme" class="icon_in_settings"></div>
+                            <div class="icon_title">Themes</div>
+                            <div class="go_into"></div>
+                        </div>
+                        <div class="row_setting" onclick="ShowEditSound()">
+                            <div id="settings_icon_sound" class="icon_in_settings"></div>
+                            <div class="icon_title">Sound</div>
+                            <div class="go_into"></div>
+                        </div>
+                        <div class="coming_soon">More Coming Soon...</div>
+                        
+                    </div>
+                    <div class="Log_out_box">
+                        <div class="User_log_out" id="user_login_out" onclick="log_out()" ><i class="fa-solid fa-arrow-right-from-bracket" id="log_out_icon" style="color: #ffffff;"></i>&nbsp;&nbsp;Wyloguj się</div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+</div>
+<div class="kurtyna"></div>
+    <div class="web_content" id="Website_Content"> <svg id="visual" viewBox="0 0 900 450" width="900" height="450" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><rect width="900" height="450" fill="#ffffff"></rect><g><g transform="translate(552 148)"><path d="M27.4 -10.3C30.7 1.2 25.2 14.2 15.9 20.8C6.5 27.3 -6.7 27.4 -17.1 20.6C-27.4 13.8 -34.7 0.1 -31.4 -11.5C-28 -23.1 -14 -32.6 -1 -32.3C12.1 -32 24.1 -21.9 27.4 -10.3Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(312 354)"><path d="M13.3 -4.4C15.2 1.5 13.2 8.6 8.6 12C3.9 15.4 -3.5 15.2 -8.8 11.5C-14.1 7.8 -17.3 0.6 -15.4 -5.2C-13.6 -11.1 -6.8 -15.5 -0.6 -15.3C5.7 -15.2 11.4 -10.4 13.3 -4.4Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(622 307)"><path d="M9.2 -3C10.7 1.6 9.9 7 6.5 9.7C3.1 12.3 -2.9 12.2 -6.9 9.3C-11 6.5 -13.1 0.8 -11.6 -3.8C-10.1 -8.5 -5.1 -12 -0.6 -11.8C3.8 -11.6 7.7 -7.7 9.2 -3Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(300 81)"><path d="M22.2 -6.8C25.1 1.9 21.4 13.2 13.9 18.4C6.4 23.7 -4.9 23 -12.9 17.3C-20.9 11.6 -25.6 0.9 -22.9 -7.5C-20.2 -15.8 -10.1 -21.8 -0.2 -21.7C9.6 -21.7 19.2 -15.5 22.2 -6.8Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(53 70)"><path d="M9.4 -3.3C10.6 0.9 9.1 5.7 5.7 8.3C2.3 10.9 -3.1 11.2 -6.2 8.9C-9.4 6.5 -10.5 1.4 -9.1 -3C-7.7 -7.4 -3.8 -11 0.1 -11.1C4 -11.1 8.1 -7.5 9.4 -3.3Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(96 390)"><path d="M27.7 -8.1C31.6 3 27.5 17.7 18.2 24.3C8.9 30.9 -5.8 29.5 -15.2 22.3C-24.5 15.2 -28.7 2.2 -25.3 -8.2C-21.9 -18.6 -10.9 -26.5 0.5 -26.7C11.9 -26.8 23.8 -19.2 27.7 -8.1Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(854 268)"><path d="M21.9 -6.7C24.6 1 20.3 11.5 13 16.4C5.8 21.3 -4.4 20.7 -11.1 15.7C-17.7 10.8 -20.9 1.5 -18.5 -6C-16 -13.4 -8 -19.1 0.8 -19.4C9.6 -19.6 19.3 -14.5 21.9 -6.7Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(517 291)"><path d="M10.7 -3.7C12.1 0.8 10.2 6.2 6.3 9.1C2.4 12.1 -3.6 12.7 -7.4 10C-11.2 7.3 -12.7 1.3 -11.1 -3.5C-9.5 -8.3 -4.8 -11.9 -0.1 -11.9C4.7 -11.9 9.3 -8.2 10.7 -3.7Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(464 214)"><path d="M11.7 -4.4C13 0.3 10.5 5.6 6.2 8.8C2 11.9 -4 12.8 -7.5 10.3C-11 7.8 -12.1 1.8 -10.4 -3.5C-8.7 -8.7 -4.4 -13.1 0.4 -13.2C5.2 -13.3 10.3 -9.2 11.7 -4.4Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(375 210)"><path d="M25 -7.2C28.4 2.2 24.3 15 16 20.8C7.6 26.6 -5 25.4 -13 19.3C-21 13.1 -24.5 2 -21.6 -6.8C-18.6 -15.6 -9.3 -22.2 0.8 -22.4C10.8 -22.7 21.7 -16.6 25 -7.2Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(287 442)"><path d="M23.6 -6.8C26.9 2.6 23.4 15 15.1 21.1C6.8 27.2 -6.4 27.1 -14.5 21C-22.6 14.8 -25.6 2.8 -22.3 -6.5C-19.1 -15.8 -9.5 -22.2 0.3 -22.3C10.1 -22.4 20.2 -16.1 23.6 -6.8Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(415 64)"><path d="M4.1 -1.6C4.6 0.3 3.9 2.3 2.4 3.4C0.9 4.5 -1.4 4.7 -2.8 3.7C-4.3 2.7 -5 0.4 -4.4 -1.5C-3.8 -3.4 -1.9 -5 -0.1 -5C1.8 -5 3.6 -3.4 4.1 -1.6Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(285 254)"><path d="M3.4 -1C4 0.6 3.7 2.7 2.5 3.5C1.3 4.4 -0.8 4.2 -2.1 3.2C-3.5 2.1 -4.1 0.3 -3.6 -1.2C-3.2 -2.6 -1.6 -3.7 -0.1 -3.7C1.4 -3.7 2.9 -2.5 3.4 -1Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(690 108)"><path d="M7.9 -2.7C8.9 0.5 7.5 4.4 4.7 6.4C1.9 8.4 -2.2 8.5 -4.5 6.7C-6.8 4.9 -7.4 1.1 -6.4 -2.1C-5.3 -5.4 -2.7 -8.2 0.4 -8.3C3.4 -8.4 6.9 -5.9 7.9 -2.7Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(891 448)"><path d="M6.4 -2.1C7.2 0.6 6.2 3.9 4 5.5C1.7 7.2 -1.8 7.2 -4.2 5.5C-6.6 3.8 -7.9 0.4 -7 -2.3C-6.1 -5.1 -3.1 -7.1 -0.2 -7.1C2.7 -7 5.5 -4.8 6.4 -2.1Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(747 362)"><path d="M10.1 -3.1C11.7 1.5 10.5 7.2 6.7 10.1C3 13.1 -3.4 13.3 -7.7 10.3C-11.9 7.2 -14 1 -12.4 -3.7C-10.8 -8.5 -5.4 -11.7 -0.6 -11.5C4.3 -11.3 8.5 -7.7 10.1 -3.1Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(56 229)"><path d="M15.8 -4.7C18.4 2.8 17 12.1 11.6 15.9C6.3 19.8 -2.9 18.2 -9.7 13.3C-16.4 8.4 -20.8 0.1 -18.8 -6.6C-16.8 -13.3 -8.4 -18.5 -0.9 -18.2C6.6 -17.9 13.2 -12.2 15.8 -4.7Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(160 37)"><path d="M23.2 -7.6C26.3 2.1 22.6 14 13.7 20.9C4.9 27.8 -9.1 29.7 -18.3 23.4C-27.6 17.1 -32.3 2.5 -28.5 -8.1C-24.6 -18.8 -12.3 -25.6 -1.1 -25.2C10 -24.8 20.1 -17.3 23.2 -7.6Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(829 103)"><path d="M17.2 -6.1C19.5 1.3 16.5 10 10.6 14.1C4.7 18.3 -4.1 18 -9.8 13.7C-15.6 9.5 -18.4 1.3 -16.3 -5.9C-14.2 -13.2 -7.1 -19.5 0.2 -19.5C7.5 -19.6 15 -13.4 17.2 -6.1Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(847 15)"><path d="M16.4 -5.1C19.1 3 17.7 12.7 11.6 17.4C5.5 22.2 -5.2 22.1 -12.2 16.9C-19.2 11.8 -22.5 1.7 -19.8 -6.3C-17.2 -14.2 -8.6 -20.1 -0.9 -19.8C6.9 -19.6 13.7 -13.1 16.4 -5.1Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(419 343)"><path d="M28.4 -9.3C32.1 2.4 27.3 16.7 18 23.2C8.6 29.6 -5.4 28.1 -14.6 21.2C-23.8 14.2 -28.2 1.8 -25 -9.1C-21.7 -20 -10.9 -29.3 0.7 -29.6C12.3 -29.8 24.6 -20.9 28.4 -9.3Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(486 442)"><path d="M29.7 -9.4C33.1 0.9 26.8 14.5 16.2 22.3C5.5 30 -9.5 31.8 -19.3 25C-29.1 18.3 -33.8 2.9 -29.7 -8.3C-25.7 -19.6 -12.8 -26.6 0.1 -26.7C13.1 -26.7 26.3 -19.8 29.7 -9.4Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(179 288)"><path d="M17.4 -5.5C20 2.2 17.7 11.7 11.3 16.5C5 21.4 -5.5 21.6 -12.9 16.5C-20.3 11.4 -24.7 1 -22.1 -6.9C-19.4 -14.7 -9.7 -19.9 -1.1 -19.5C7.4 -19.1 14.9 -13.2 17.4 -5.5Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(687 204)"><path d="M14.4 -4.8C16.4 1.5 14.2 9 8.9 13.1C3.5 17.2 -4.9 17.8 -10.5 13.9C-16.1 10 -18.9 1.5 -16.6 -5.1C-14.4 -11.6 -7.2 -16.2 -0.5 -16.1C6.2 -15.9 12.4 -11 14.4 -4.8Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(139 147)"><path d="M19.7 -6.9C22.1 1 18.3 10.5 11.4 15.4C4.5 20.4 -5.5 20.9 -11.6 16.4C-17.7 11.9 -19.8 2.4 -17.2 -5.8C-14.6 -14.1 -7.3 -21 0.7 -21.2C8.6 -21.4 17.3 -14.9 19.7 -6.9Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(17 436)"><path d="M18 -6.1C20.7 2.4 18.4 12.3 11.7 17.5C5 22.6 -6 23.1 -13 18C-20 12.9 -22.9 2.2 -20.1 -6.5C-17.2 -15.2 -8.6 -22 -0.5 -21.8C7.7 -21.7 15.3 -14.6 18 -6.1Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(625 439)"><path d="M10.7 -2.9C12.3 1.6 11.1 7.6 7.3 10.4C3.6 13.2 -2.8 12.9 -6.6 9.9C-10.5 6.9 -11.8 1.3 -10.3 -3C-8.8 -7.4 -4.4 -10.4 0.1 -10.5C4.5 -10.5 9 -7.4 10.7 -2.9Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(589 11)"><path d="M17.6 -6.1C19.6 0.6 16 8.7 10.2 12.6C4.5 16.4 -3.4 15.9 -8.5 12.1C-13.6 8.3 -16 1.1 -14.2 -5.3C-12.3 -11.8 -6.2 -17.6 0.8 -17.8C7.8 -18.1 15.5 -12.8 17.6 -6.1Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(1 159)"><path d="M8.5 -2.6C9.7 1.1 8.6 5.6 5.7 7.7C2.8 9.7 -1.7 9.2 -5 6.8C-8.3 4.5 -10.3 0.2 -9.3 -3.1C-8.2 -6.5 -4.1 -9 -0.2 -8.9C3.6 -8.8 7.2 -6.2 8.5 -2.6Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(787 201)"><path d="M15.9 -5.1C17.9 0.9 14.8 8.5 9.3 12.4C3.8 16.3 -4.1 16.4 -9.8 12.5C-15.6 8.5 -19.1 0.6 -17.1 -5.4C-15.1 -11.5 -7.6 -15.5 -0.3 -15.4C7 -15.3 13.9 -11.1 15.9 -5.1Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(196 423)"><path d="M11 -3.7C12.6 1.3 11.1 7.2 7.1 10.2C3.2 13.1 -3.2 13.1 -7 10.2C-10.8 7.3 -12 1.5 -10.4 -3.6C-8.8 -8.6 -4.4 -13 0.1 -13C4.7 -13.1 9.4 -8.8 11 -3.7Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(890 355)"><path d="M10.8 -3.2C12.3 1.1 10.6 6.7 6.9 9.3C3.2 11.9 -2.4 11.5 -6.3 8.7C-10.2 5.9 -12.2 0.6 -10.9 -3.4C-9.5 -7.5 -4.7 -10.3 0 -10.3C4.7 -10.3 9.3 -7.4 10.8 -3.2Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(29 324)"><path d="M12.7 -4.3C14.4 1.3 12.5 7.9 8.1 11C3.8 14.1 -3 13.7 -7.9 10.3C-12.8 6.8 -16 0.3 -14.4 -5.1C-12.7 -10.5 -6.4 -14.8 -0.5 -14.7C5.5 -14.5 10.9 -9.9 12.7 -4.3Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(508 61)"><path d="M8.9 -2.4C10.3 1.6 9.5 6.7 6.4 9.1C3.2 11.5 -2.2 11 -5.5 8.4C-8.7 5.9 -9.7 1.2 -8.5 -2.5C-7.2 -6.3 -3.6 -9 0.1 -9.1C3.7 -9.1 7.4 -6.3 8.9 -2.4Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(800 447)"><path d="M5.6 -1.8C6.3 0.6 5.5 3.5 3.4 5.1C1.3 6.7 -2 7 -4 5.5C-6.1 4 -6.9 0.7 -6 -1.8C-5.2 -4.4 -2.6 -6.2 -0.1 -6.2C2.4 -6.1 4.8 -4.2 5.6 -1.8Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(723 4)"><path d="M4.9 -1.7C5.5 0.2 4.5 2.6 2.8 3.8C1.1 5.1 -1.4 5.2 -3 4.1C-4.6 2.9 -5.2 0.5 -4.6 -1.5C-3.9 -3.6 -2 -5.3 0.1 -5.3C2.2 -5.4 4.3 -3.7 4.9 -1.7Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(548 377)"><path d="M17.7 -6.3C19.9 0.9 16.4 9.4 10.3 13.7C4.3 17.9 -4.4 18 -10.2 13.8C-15.9 9.7 -18.8 1.3 -16.6 -5.9C-14.4 -13.1 -7.2 -19.3 0.3 -19.4C7.8 -19.5 15.5 -13.5 17.7 -6.3Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(386 431)"><path d="M20.1 -7.3C23 2.4 20.2 13.2 12.5 19.3C4.7 25.5 -8 27 -16 21.3C-23.9 15.7 -27.2 2.9 -23.8 -7.6C-20.3 -18 -10.2 -26.1 -0.8 -25.9C8.6 -25.6 17.2 -17 20.1 -7.3Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(893 180)"><path d="M25.8 -9.2C28.6 0 22.4 11.2 13.6 17.3C4.7 23.5 -6.9 24.5 -15.3 18.9C-23.6 13.3 -28.8 1.2 -25.7 -8.5C-22.6 -18.1 -11.3 -25.2 0.1 -25.3C11.6 -25.3 23.1 -18.3 25.8 -9.2Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g><g transform="translate(249 159)"><path d="M4.8 -1.6C5.4 0.1 4.4 2.4 2.7 3.6C1 4.7 -1.4 4.9 -3 3.8C-4.6 2.7 -5.5 0.3 -4.8 -1.5C-4.2 -3.3 -2.1 -4.5 0 -4.5C2.1 -4.5 4.3 -3.3 4.8 -1.6Z" stroke="#6B6BC7" fill="none" stroke-width="10"></path></g></g></svg>
+        <div class="task_container" id="Task_List">
+            <div class="Create_task">
+                    <div id="box" class="container">
+                        <button class="button_create_task" id="btn" onclick="createTask()">Dodaj produkt</button>
+                    </div>
+                <div class="requirements">
+
+                    <div class="task_input">
+                        <label for="icon" id="title">Nazwa Produktu
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+                                <path d="M0,50 Q250,0 500,50 T1000,50" fill="none" stroke="#FFFFFF" stroke-width="7"/>
+                              </svg>
+                              
+                        </label>
+                        
+                        <button id="icon">&nbsp;&nbsp; <i class="fa-regular fa-pen-to-square" id="name_icon"></i> </button>
+                        <input type="text" required id="task_title" placeholder="Mleko..?, a może lody?">
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="Show_to_do_tasks" id="Label_To_Do_Tasks" onclick="ShowToDoTasks()">
+                <div class="To_do_tasks" id="unfinished_Tasks"><i class="fa-solid fa-chevron-right"></i>&nbsp;&nbsp;Produkty do kupienia: <span id="taskCount">0</span></div>
+                <hr>
+            </div>
+            
+
+                <div class="tasks" id="taskList">
+                </div>
+
+                <div class="zadanie" style="display: none;">
+                    <div class="custom-checkbox">
+                        <input type="checkbox" id="DefaultCheckbox" hidden>
+                        <span></span>
+                    </div>
+                </div>
+
+            <div class="Done_tasks" id="Label_Finished_Tasks" onclick="ShowDoneTasks()">
+                <div class="Done_tasks_container">
+                    <div class="content_tasks">
+                    <i class="fa-solid fa-chevron-right">
+                    </i>&nbsp;&nbsp;Kupione produkty: <span id="Finished_Task_Count">0</span>
+                </div>
+                </div>
+                <hr>
+            </div>
+            <div class="show_done_tasks" id="Show_Finished_Tasks">
+
+            </div> 
+
+        </div>
+        <div id="cookies">
+            <div class="cookies-container">
+                <div class="subcontainer">
+                    <div class="cookies">
+                        <p id="cookie-title">Cenimy Twoją Prywatność <img src="Images/cookie-svgrepo-com.svg" alt="ciasteczko"></p>
+                        <p>Ta strona używa ciasteczek, by zapewnić najlepsze doświadczenia na naszej stronie. 
+                        <a href="#">Zobacz więcej</a></p>
+                        <button id="cookies-btn">Zgadzam się</button>
+                    </div>
+                </div>
+            </div>
+            <input type="text" id="none" hidden>
+        </div>
+    </div>
+
+
+    
+</body>
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    <script>
+
+        
+        var zadanie_count = 0
+        var audio = new Audio();
+        audio.src = 'complete.mp3'
+
+
+        setCookie = (cName, cValue, expDays) =>{
+            let date = new Date();
+            date.setTime(date.getTime() + (expDays * 24 * 60 * 60 * 1000))
+            const expires = "expires=" + date.toUTCString();
+            document.cookie = cName + "=" + cValue + "; " + expires + "; path=/"
+        }
+
+        getCookie = (cName) => {
+            const name = cName + "=";
+            const cDecoded = decodeURIComponent(document.cookie)
+            const cArr = cDecoded.split("; ");
+            let value;
+            cArr.forEach(val => {
+                if(val.indexOf(name) === 0) value = val.substring(name.length)
+            })
+            return value
+        }
+
+        document.querySelector("#cookies-btn").addEventListener("click", () => {
+            document.querySelector("#cookies").style.display = "none";
+            setCookie("cookie",true,30)
+        })
+
+        cookieMessage = () => {
+            if(!getCookie("cookie"))
+                document.querySelector("#cookies").style.display = "flex"
+            }
+        
+            window.addEventListener("load",cookieMessage)
+
+        
+
+            let profilePic = document.querySelector('.profile_image'); 
+            let inputFile = document.getElementById('Profile_file');
+            inputFile.addEventListener('change', function() {
+            // Sprawdzamy, czy użytkownik wybrał plik
+            if (this.files && this.files[0]) {
+                // Tworzymy nowy obiekt FileReader
+                let reader = new FileReader();
+                
+
+                // Dodajemy nasłuchiwanie na zdarzenie load, które zostanie wywołane po wczytaniu pliku
+                reader.addEventListener('load', function(e) {
+                    // Aktualizujemy obraz profilowy
+                    profilePic.style.backgroundImage = 'url(' + e.target.result + ')';
+
+                    // Przesyłamy zdjęcie na serwer
+                    fetch('/Change-profile-image', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ image: e.target.result })
+                    })
+                    .then(response => response.json())
+                    .then(data => console.log(data))
+                    .catch(error => console.error('Error:', error));
+                });
+
+                // Wczytujemy plik jako dane URL
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const rows = document.querySelectorAll('.row');
+            const default_row = document.getElementById('default_row')
+
+            rows.forEach(row => {
+                row.addEventListener('click', function() {
+                    rows.forEach(c => {
+                        c.style.backgroundColor = ''; // Reset background color
+                        c.style.borderColor = ''; // Reset border color
+                    });
+                    if (default_row.style.backgroundColor !== '#FFFFFF'){
+                        default_row.style.backgroundColor = '#FFFFFF';
+                        default_row.style.borderColor = '#cccccc';
+                    }
+                    this.style.backgroundColor = '#fff0f2'; // Set background color for clicked element
+                    this.style.borderColor = '#ffa8b5'; // Set border color for clicked element
+
+
+                });
+            });
+        });
+
+
+
+        // Funkcja do odtwarzania dźwięku
+        function play_audio(){
+            const selectedSound = localStorage.getItem('selected_sound');
+            audio.src = selectedSound ? selectedSound : 'complete.mp3'; // Jeśli selected_sound istnieje, użyj jego wartości; w przeciwnym razie użyj 'complete.mp3'
+            
+            // Pobierz wartość suwaka głośności i przekształć ją na zakres 0-1
+            const SoundVolume = localStorage.getItem('volume');
+            
+            // Ustaw głośność dźwięku na wartość z suwaka
+            audio.volume = SoundVolume;
+            
+            audio.play();
+        }
+
+        function Showaudio(){
+            const currnet_sound = document.querySelector('.currnet_sound');
+            const savedSound = localStorage.getItem('Audio_name');
+             // Pobranie tylko nazwy pliku ze ścieżki
+            const fileName = savedSound ? savedSound : 'complete.mp3'; // Jeśli brak zapisanego dźwięku, użyj domyślnej nazwy
+            currnet_sound.textContent = fileName;
+        }
+
+
+
+
+        document.addEventListener("DOMContentLoaded", function(){
+            const volume_slider = document.querySelector('.volume_slider');
+            const show_volume_procent = document.querySelector('.show_volume_procent');
+            const gradientColor = `linear-gradient(to right, #6B81FA, #6B81FA ${50}%, transparent ${50}%)`;
+            volume_slider.style.background = gradientColor;
+            const audio = new Audio();
+            audio.src = 'complete.mp3'; 
+
+
+
+            volume_slider.addEventListener('input', function() {
+                const show_value = this.value;
+                show_volume_procent.textContent = show_value + '%';
+
+                // Ustawienie koloru tła suwaka
+                const gradientColor = `linear-gradient(to right, #6B81FA, #6B81FA ${show_value}%, transparent ${show_value}%)`;
+                volume_slider.style.background = gradientColor;
+
+                const volume = show_value / 100; // Normalizacja wartości suwaka
+                audio.volume = volume;
+
+                localStorage.setItem('volume', volume)
+
+                // setTimeout(() => {
+                //     let isPlaying = false;
+                //         if (!isPlaying) {
+                //             isPlaying = true;
+                //             const selectedSound = localStorage.getItem('selected_sound');
+                //             audio.src = selectedSound ? selectedSound : 'complete.mp3'; // Jeśli selected_sound istnieje, użyj jego wartości; w przeciwnym razie użyj 'complete.mp3'
+                //             audio.play().then(() => {
+                //                 isPlaying = false; // Po zakończeniu odtwarzania, ustaw flagę isPlaying na false
+                //             }).catch(error => {
+                //             });
+                //         }
+                // },400)
+            });
+
+            function handleNewSound(event) {
+                const selectedSound = event.target.files[0];
+                let SelectedAudioTitle = selectedSound.name.replace(/\s/g, ''); // Usuń wszystkie spacje z nazwy pliku
+                SelectedAudioTitle = SelectedAudioTitle.replace(/\.mp3/g, ''); // Usuń wszystkie wystąpienia ".mp3" z nazwy pliku
+                
+
+                const reader = new FileReader();
+
+                reader.onload = function() {
+                    const newSoundSrc = reader.result;
+                    localStorage.setItem('selected_sound', newSoundSrc); // Zapisanie ścieżki do nowego dźwięku w localStorage
+                    localStorage.setItem('Audio_name',SelectedAudioTitle )
+                    audio.src = newSoundSrc; // Ustawienie nowego dźwięku w elemencie audio
+                    Showaudio(); // Wyświetlenie nazwy nowego dźwięku
+
+                }
+
+                reader.readAsDataURL(selectedSound);
+            }
+
+        // Nasłuchiwanie zdarzenia wyboru nowego dźwięku przez użytkownika
+        const add_sound_input = document.getElementById('add_sound_input');
+        add_sound_input.addEventListener('change', handleNewSound);
+    });
+
+
+
+        async function ChangeTheme(){
+            const rows = document.querySelectorAll('.row');
+
+            let selectedRow = null;
+            rows.forEach(row => {
+                if (row.style.backgroundColor === 'rgb(255, 240, 242)' && row.style.borderColor === 'rgb(255, 168, 181)') {
+                    selectedRow = row;
+                }
+            });
+
+            if (selectedRow) {
+                const colors = selectedRow.querySelectorAll('.color');
+                theme_colors = []
+                colors.forEach(color => {
+                    const computedStyle = window.getComputedStyle(color);
+                    theme_colors.push(computedStyle.getPropertyValue('background-color'))
+                });
+                const color_1 = theme_colors[0]
+                const color_2 = theme_colors[1]
+                const color_3 = theme_colors[2]
+
+                
+                const heading = document.querySelector('.heading')
+                const button = document.querySelector('.button_create_task')
+                const product_entry = document.querySelector('.task_input')
+
+                const SaveTheme = document.getElementById('SaveTheme')
+                const SavedTheme = document.getElementById('SavedTheme')           
+                const icon = SavedTheme.querySelector('.Animated_check_mark_saved_theme');
+
+                
+
+                fetch("/ChangeTheme", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        heading_color: color_1,
+                        button_color: color_2,
+                        product_entry_bg: color_3
+                    })
+                })
+                .then(response => response.json())
+                .then(table => {
+                        console.log(
+                            table.data.heading_color,
+                            table.data.button_color,
+                            table.data.product_entry_bg,
+                            table.status
+                        );
+                        if(table.status === "success"){
+                                
+                            SaveTheme.style.display = 'none';
+                            SavedTheme.style.display = 'block';
+                            icon.playerInstance.play();
+                            setTimeout( () => {
+                                SaveTheme.style.display = 'block';
+                                SavedTheme.style.display = 'none';
+                            },2100)
+
+
+                        var svg = document.getElementById('visual');
+                            // Pobierz wszystkie elementy 'path' w SVG
+                            var paths = svg.getElementsByTagName('path');
+                            // Iteruj przez wszystkie ścieżki i zmień kolor stroke na czerwony
+                            for (var i = 0; i < paths.length; i++) {
+                                paths[i].setAttribute('stroke', `${color_3}`);
+                            }
+
+
+                        if (color_1 === 'rgb(77, 77, 255)'){
+                            heading.style.background = `linear-gradient(to right, ${color_1}, ${modifyColor(color_1, 71, 123, 0)}) `;
+                            button.style.background = `linear-gradient(30deg, ${color_2}, ${modifyColor(color_2, 72, 0, 0)})`;
+                            product_entry.style.background = `linear-gradient(30deg, ${color_3}, ${modifyColor(color_3, 60, 60,46)})`;
+
+                        }else{
+                            heading.style.background = `linear-gradient(to right, ${color_1}, ${color_1} `;
+                            button.style.background = `linear-gradient(30deg, ${color_2}, ${modifyColor(color_2, 72, 0, 0)})`;
+                            product_entry.style.background = `linear-gradient(30deg, ${color_3}, ${modifyColor(color_3, 60, 60,46)})`;
+                            
+                        }
+                    }})
+                .catch(error => {
+                    console.log(error);
+                });
+            } else {
+                console.log("Nie znaleziono wiersza o podanych kolorach.");
+            }
+        }
+
+        function modifyColor(colorValue, redIncrease, greenIncrease, blueIncrease) {
+            // Parsowanie koloru z postaci rgb(x, y, z) do tablicy liczb
+            const colorComponents = colorValue.match(/\d+/g).map(Number);
+            // Zwiększenie pierwszego składnika koloru o wartość redIncrease
+            colorComponents[0] += redIncrease;
+             // Ograniczenie wartości pierwszego składnika koloru do zakresu 0-255
+            colorComponents[0] = Math.min(Math.max(colorComponents[0], 0), 255);
+            // Zwiększenie drugiego składnika koloru o wartość greenIncrease
+            colorComponents[1] += greenIncrease;
+            // Ograniczenie wartości drugiego składnika koloru do zakresu 0-255
+             colorComponents[1] = Math.min(Math.max(colorComponents[1], 0), 255);
+            // Zwiększenie trzeciego składnika koloru o wartość blueIncrease
+             colorComponents[2] += blueIncrease;
+            // Ograniczenie wartości trzeciego składnika koloru do zakresu 0-255
+            colorComponents[2] = Math.min(Math.max(colorComponents[2], 0), 255);
+            // Zwrócenie zmodyfikowanego koloru w postaci rgb(x, y, z)
+            return `rgb(${colorComponents[0]}, ${colorComponents[1]}, ${colorComponents[2]})`;
+        }
+
+
+
+        
+
+
+        async function ChangeData() {
+                event.preventDefault(); // Zapobiega domyślnej akcji formularza (wysłanie danych)
+                let edited_email = document.getElementById('edit_email').value;
+                let edited_name = document.getElementById('edit_name').value;
+                let edited_password = document.getElementById('edit_pw').value;
+                const SaveTheProfileData = document.getElementById('SaveTheProfileData')
+                const SavedData = document.getElementById('SavedData')           
+                const icon = SavedData.querySelector('.Animated_check_mark_2');
+            
+                const response = await fetch("/ChangeUserProfile",{
+                    method: "POST",
+                    headers: {
+                        "Content-Type":"Application/json"
+                    },
+                    body: JSON.stringify({
+                        edited_email: edited_email,
+                        edited_name: edited_name,
+                        edited_password: edited_password,
+                    })
+                });
+
+                const json = await response.json();
+
+                if (json.status === 'success'){
+                    SaveTheProfileData.style.display = 'none';
+                    SavedData.style.display = 'block';
+                    icon.playerInstance.play();
+                    setTimeout( () => {
+                        SaveTheProfileData.style.display = 'block';
+                        SavedData.style.display = 'none';
+                    },2100)
+
+                    setTimeout(() => {
+                        location.reload();
+                    },1700)
+
+
+
+                } 
+                else{
+
+                    let Account_Feedback = document.getElementById('Account_Feedback')
+                    const xmark = document.getElementById('xmark')
+
+                        Account_Feedback.innerHTML = json.message;
+                        let xmarkClone = xmark.cloneNode(true);
+                        xmarkClone.style.display = 'block';
+                        Account_Feedback.appendChild(xmarkClone);
+                        setTimeout(function(){
+                            Account_Feedback.style.backgroundColor = '#c61515'
+                            Account_Feedback.style.display = 'flex';
+                            Account_Feedback.style.width = '254px'
+                            setTimeout(function(){
+                                Account_Feedback.style.display = 'none';
+                                xmarkClone.style.display = 'none'
+                            }, 3100);
+                        }, 190);
+                    }
+                console.log(json.status);
+
+
+
+                console.log(edited_email);
+                console.log(edited_name);
+                console.log(edited_password);
+                return edited_password
+            }
+
+        
+            function play_animation(buttonSelector, iconSelector) {
+                const button = document.getElementById(buttonSelector);
+                const icon = button.querySelector(iconSelector);
+                let isPlaying = false;
+
+                // Funkcja do odtwarzania animacji
+                function playAnimation() {
+                    if (!isPlaying) {
+                        icon.playerInstance.play();
+                        isPlaying = true;
+                    }
+                }
+
+                // Funkcja do zatrzymywania animacji
+                function stopAnimation() {
+                    if (isPlaying) {
+                        icon.playerInstance.stop();
+                        isPlaying = false;
+                    }
+                }
+
+                // Obsługa zdarzenia najechania kursorem na przycisk
+                button.addEventListener("mouseover", playAnimation);
+
+                // Obsługa zdarzenia zjechania kursorem z przycisku
+                button.addEventListener("mouseout", stopAnimation);
+            }
+
+
+
+
+
+
+        async function Register() {
+            let name = document.getElementById('sign_up_name').value;
+            let email = document.getElementById('sign_up_email').value;
+            let password = document.getElementById('sign_up_passwordInput').value;
+            let date = document.getElementById('sign_up_date').value;
+            let Account_Feedback = document.getElementById('Account_Feedback')
+            const checkmark = document.getElementById('checkmark')
+            const xmark = document.getElementById('xmark')
+
+            try {
+                const response = await fetch("/register", {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": "Application/json"
+                    },
+                    body: JSON.stringify(
+                    {name: name, email: email, password: password, date: date})
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const json = await response.json();
+                console.log(json);
+
+                // Wyświetl status odpowiedzi JSON na stronie
+                if (json.status) {
+                    if (json.status === 'Utworzono Konto'){
+                        Account_Feedback.innerHTML = json.status;
+                        let checkmarkClone = checkmark.cloneNode(true);
+                        checkmarkClone.style.display = 'block';
+                        Account_Feedback.appendChild(checkmarkClone);
+                        setTimeout(function(){
+                            Account_Feedback.style.backgroundColor = '#1eb82d'
+                            Account_Feedback.style.display = 'flex';
+                            setTimeout(function(){
+                                Account_Feedback.style.display = 'none';
+                                checkmarkClone.style.display = 'none'
+                            }, 3100);
+                        }, 190);
+
+                        ShowSignUpPage()
+                        
+                    }
+                    else{
+                        Account_Feedback.innerHTML = json.message;
+                        let xmarkClone = xmark.cloneNode(true);
+                        xmarkClone.style.display = 'block';
+                        Account_Feedback.appendChild(xmarkClone);
+                        setTimeout(function(){
+                            Account_Feedback.style.backgroundColor = '#c61515'
+                            Account_Feedback.style.display = 'flex';
+                            Account_Feedback.style.width = '254px'
+                            setTimeout(function(){
+                                Account_Feedback.style.display = 'none';
+                                xmarkClone.style.display = 'none'
+                            }, 3100);
+                        }, 190);
+                    }
+                }
+
+            } catch (error) {
+                console.log('Problem with Fetch/Server: ' + error.message);
+                // Obsługa błędu po stronie klienta
+                Account_Feedback.innerHTML = 'Wystąpił błąd podczas wysyłania żądania.';
+                Account_Feedback.style.backgroundColor = '#c61515';
+                Account_Feedback.style.display = 'flex';
+                setTimeout(function(){
+                    Account_Feedback.style.display = 'none';
+                }, 3100);
+        }
+    }
+
+
+    async function Login() {
+            let email = document.getElementById('login_email').value;
+            let password = document.getElementById('login_passwordInput').value;
+            let Account_Feedback = document.getElementById('Account_Feedback')
+            const checkmark = document.getElementById('checkmark')
+            const xmark = document.getElementById('xmark')
+            const login_button = document.querySelector('.login')
+            const sign_up_button = document.querySelector('.sign_up')
+            const User_main_container = document.getElementById('User_main_container')
+            const User_profile_name = document.getElementById('User_profile_name')
+            const User_profile_email = document.getElementById('User_profile_email')
+            const settings_icon = document.querySelector('.settings_icon');
+
+
+        try{
+            const response = await fetch("/login", {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "Application/json"
+                },
+                body: JSON.stringify(
+                {email: email, password: password})
+            });
+                if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                const json = await response.json();
+                console.log(json);
+
+                // Wyświetl status odpowiedzi JSON na stronie
+                if (json.status) {
+                    if (json.status === 'Zalogowano'){
+                        Account_Feedback.innerHTML = json.status;
+
+                        let checkmarkClone = checkmark.cloneNode(true);
+                        checkmarkClone.style.display = 'block';
+
+                        Account_Feedback.appendChild(checkmarkClone);
+                        setTimeout(function(){
+                            Account_Feedback.style.backgroundColor = '#1eb82d'
+                            Account_Feedback.style.display = 'flex';
+                            setTimeout(function(){
+                                Account_Feedback.style.display = 'none';
+                                checkmarkClone.style.display = 'none'
+                            }, 3100);
+                        }, 190);
+
+                        login_button.style.display = 'none'
+                        sign_up_button.style.display = 'none'
+                        User_main_container.style.display = 'flex'
+                        User_main_container.style.borderRadius = '.35rem'
+                        settings_icon.style.display = 'flex'
+                        ShowLoginPage()
+
+                        User_profile_name.innerHTML = json.User_name
+                        User_profile_email.innerHTML = json.User_email
+
+                        fetch('/Get-profile-image')
+                            .then(response => response.json())
+                            .then(data => {
+                                if(data.status === "success") {
+                                    profilePic.style.backgroundImage = 'url(' + data.image + ')';
+                                    const headingProfileIcon = document.querySelector('.login_icon')
+
+                                    headingProfileIcon.style.backgroundImage = 'url('+ data.image + ')';
+                                    headingProfileIcon.style.width = '43px';
+                                    headingProfileIcon.style.height = '43px';
+                                    headingProfileIcon.style.height = '43px';
+                                    headingProfileIcon.style.border = '2px solid lightgrey';
+                                    headingProfileIcon.style.marginLeft = '7px';
+                                    headingProfileIcon.style.marginRight = '7px';
+                                    
+
+
+                                } else {
+                                    console.error('Error:', data.message);
+                                }
+                            })
+                            .catch(error => console.error('Error:', error));
+                            
+
+                        
+
+                        fetch("/user-progress-ToBuyGoods")
+                            .then(response => response.json())
+                            .then(data => {
+                                const userTasks = data.tasks;
+                                displayProducts(userTasks);
+                            })
+                            .catch(error => console.error('Problem z pobieraniem danych:', error));
+
+
+                        fetch("/user-progress-BoughtGoods")
+                            .then(response => response.json())
+                            .then(data => {
+                                const userTasks = data.tasks;
+                                displayBoughtProducts(userTasks);
+                            })
+                            .catch(error => console.error('Problem z pobieraniem danych:', error));
+
+
+                            
+
+                        setTimeout(() => {
+                                location.reload();
+                                },300)
+                    }
+                    else{
+                        Account_Feedback.innerHTML = json.message;
+                        let xmarkClone = xmark.cloneNode(true);
+                        xmarkClone.style.display = 'block';
+                        Account_Feedback.appendChild(xmarkClone);
+                        setTimeout(function(){
+                            Account_Feedback.style.backgroundColor = '#c61515'
+                            Account_Feedback.style.display = 'flex';
+                            Account_Feedback.style.width = '254px'
+                            setTimeout(function(){
+                                Account_Feedback.style.display = 'none';
+                                xmarkClone.style.display = 'none'
+                            }, 3100);
+                        }, 190);
+                    }
+                }
+
+            }catch (error) {
+                console.log('Problem with Fetch/Server: ' + error.message);
+            }      
+        }
+
+                // Przykładowy kod obsługujący żądanie do sprawdzenia zalogowania
+                fetch('/check-login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'Application/json'
+                    },
+                    body: JSON.stringify({})
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'Zalogowano') {
+                        const checkmark = document.getElementById('checkmark')
+                        const xmark = document.getElementById('xmark')
+                        const login_button = document.querySelector('.login')
+                        const sign_up_button = document.querySelector('.sign_up')
+                        const User_main_container = document.getElementById('User_main_container')
+                        const User_profile_name = document.getElementById('User_profile_name')
+                        const User_profile_email = document.getElementById('User_profile_email')
+                        const settings_icon = document.querySelector('.settings_icon');
+
+                        fetch('/LoadTheme',{
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'Application/json'
+                            },
+                            body: JSON.stringify({})
+                            })
+                            .then(response => response.json())
+                            .then(table => {
+                                const heading = document.querySelector('.heading')
+                                const button = document.querySelector('.button_create_task')
+                                const product_entry = document.querySelector('.task_input')
+
+                                const color_1 = table.data.heading_color
+                                const color_2 = table.data.button_color
+                                const color_3 = table.data.product_entry_bg
+                                
+                                var svg = document.getElementById('visual');
+                                // Pobierz wszystkie elementy 'path' w SVG
+                                var paths = svg.getElementsByTagName('path');
+                                // Iteruj przez wszystkie ścieżki i zmień kolor stroke na czerwony
+                                for (var i = 0; i < paths.length; i++) {
+                                    paths[i].setAttribute('stroke', `${color_3}`);
+                                }
+
+
+
+                                if (color_1 === 'rgb(77, 77, 255)'){
+                                    heading.style.background = `linear-gradient(to right, ${color_1}, ${modifyColor(color_1, 71, 123, 0)}) `;
+                                    button.style.background = `linear-gradient(30deg, ${color_2}, ${modifyColor(color_2, 72, 0, 0)})`;
+                                    product_entry.style.background = `linear-gradient(30deg, ${color_3}, ${modifyColor(color_3, 60, 60,46)})`;
+
+                                }else{
+                                    heading.style.background = `linear-gradient(to right, ${color_1}, ${color_1} `;
+                                    button.style.background = `linear-gradient(30deg, ${color_2}, ${modifyColor(color_2, 72, 0, 0)})`;
+                                    product_entry.style.background = `linear-gradient(30deg, ${color_3}, ${modifyColor(color_3, 60, 60,46)})`;
+                                    
+                                }
+                            })
+                        
+
+                        fetch('/Get-profile-image')
+                            .then(response => response.json())
+                            .then(data => {
+                                if(data.status === "success") {
+                                    profilePic.style.backgroundImage = 'url(' + data.image + ')';
+                                    const headingProfileIcon = document.querySelector('.login_icon')
+
+                                    headingProfileIcon.style.backgroundImage = 'url('+ data.image + ')';
+                                    headingProfileIcon.style.width = '43px';
+                                    headingProfileIcon.style.height = '43px';
+                                    headingProfileIcon.style.height = '43px';
+                                    headingProfileIcon.style.border = '2px solid lightgrey';
+                                    headingProfileIcon.style.marginLeft = '7px';
+                                    headingProfileIcon.style.marginRight = '7px';
+                                } else {
+                                    console.error('Error:', data.message);
+                                }
+                            })
+                            .catch(error => console.error('Error:', error));
+
+
+                        document.getElementById('edit_email').value = data.User_email;
+                        document.getElementById('edit_name').value = data.User_name;
+                        document.getElementById('edit_pw').value = data.User_password;
+                        document.getElementById('User_name_profile').innerText = data.User_name
+
+                        Account_Feedback.innerHTML = data.status; 
+
+                        let checkmarkClone = checkmark.cloneNode(true);
+                        checkmarkClone.style.display = 'block';
+
+                        Account_Feedback.appendChild(checkmarkClone);
+                        setTimeout(function(){
+                            Account_Feedback.style.backgroundColor = '#1eb82d'
+                            Account_Feedback.style.display = 'flex';
+                            setTimeout(function(){
+                                Account_Feedback.style.display = 'none';
+                                checkmarkClone.style.display = 'none'
+                            }, 3100);
+                        }, 190);
+
+                        settings_icon.style.display = 'flex'
+                        login_button.style.display = 'none'
+                        sign_up_button.style.display = 'none'
+                        User_main_container.style.display = 'flex'
+                        User_main_container.style.borderRadius = '.35rem'
+
+                        User_profile_name.innerHTML = data.User_name
+                        User_profile_email.innerHTML = data.User_email
+
+                        const currnet_sound = document.querySelector('.currnet_sound');
+                        const savedSound = localStorage.getItem('Audio_name');
+                        // Pobranie tylko nazwy pliku ze ścieżki
+                        const fileName = savedSound ? savedSound : 'complete.mp3'; // Jeśli brak zapisanego dźwięku, użyj domyślnej nazwy
+                        currnet_sound.textContent = fileName;
+
+                        // console.log("test");
+                        // console.log(data.User_email);
+                        // console.log(data.User_name);
+                        // console.log(data.User_password);
+
+                        fetch("/user-progress-ToBuyGoods")
+                            .then(response => response.json())
+                            .then(data => {
+                                const userTasks = data.tasks;
+                                displayProducts(userTasks);
+                            })
+                            .catch(error => console.error('Problem z pobieraniem danych:', error));
+
+
+                        fetch("/user-progress-BoughtGoods")
+                            .then(response => response.json())
+                            .then(data => {
+                                const userTasks = data.tasks;
+                                displayBoughtProducts(userTasks);
+                            })
+                            .catch(error => console.error('Problem z pobieraniem danych:', error));
+
+
+                            
+
+
+                    
+                        // Zrób coś, gdy użytkownik jest zalogowany
+                    } else {
+                        console.log('Użytkownik niezalogowany');
+                        // Zrób coś, gdy użytkownik nie jest zalogowany
+                    }
+                })
+                .catch(error => {
+                    console.error('Wystąpił błąd podczas sprawdzania logowania:', error);
+                });
+
+
+
+
+
+        function ShowToDoTasks() {
+            var taskList = document.getElementById('taskList');
+            var show_done_tasks = document.getElementById('Show_Finished_Tasks');
+
+            let taskListStatus = taskList.style.display;
+
+            // Otwórz lub zamknij listę zadań do zrobienia w zależności od jej aktualnego stanu
+            taskList.style.display = (taskListStatus === 'inline-block') ? 'none' : 'inline-block';
+
+            // Sprawdź, czy oba elementy są wyświetlone i schowaj jeden z nich
+            if (taskList.style.display === 'inline-block' && show_done_tasks.style.display === 'inline-block') {
+                show_done_tasks.style.display = 'none';
+            }
+    }
+
+        function ShowDoneTasks() {
+            var taskList = document.getElementById('taskList');
+            var show_done_tasks = document.getElementById('Show_Finished_Tasks');
+
+            let showDoneTasksStatus = show_done_tasks.style.display;
+
+            // Otwórz lub zamknij wykonane zadania w zależności od jego aktualnego stanu
+            show_done_tasks.style.display = (showDoneTasksStatus === 'inline-block') ? 'none' : 'inline-block';
+
+            // Sprawdź, czy oba elementy są wyświetlone i schowaj jeden z nich
+            if (taskList.style.display === 'inline-block' && show_done_tasks.style.display === 'inline-block') {
+                taskList.style.display = 'none';
+            }
+        }
+
+
+        function toggleCheckbox(event, element) {
+            console.log(element);
+
+            var doneTasksContainer = document.getElementById('Show_Finished_Tasks');
+            var taskList = document.getElementById('taskList');
+            var unfinishedTasksContainer = document.getElementById('taskList');
+            var pencilIconClicked = event.target.id === 'name_icon'; // Sprawdzamy, czy kliknięcie nastąpiło na ikonie ołówka
+            var checkboxClicked = event.target.className === 'task_checkbox'
+
+            var checkbox = element.querySelector('input[type=checkbox]');
+            checkbox.checked = !checkbox.checked;
+            var taskId = checkbox.dataset.taskId; // Pobieramy identyfikator zadania z atrybutu data-task-id
+
+            if (pencilIconClicked || checkboxClicked) return; // Jeśli kliknięcie nastąpiło na ikonie ołówka lub polu wyboru, zakończ funkcję
+
+
+
+            // reszta kodu bez zmian
+            console.log(taskId);
+
+            const deleteProduct = event.target.id == 'delete-button';
+            if (deleteProduct){
+                if (taskList.contains(element)){
+                        taskList.removeChild(element);
+
+                        fetch("/Delete-from-tobuy",{
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "Application/json"
+                            },
+                            body: JSON.stringify({
+                                taskId: taskId
+                            })})
+                            .then(response => response.json()) // Dodano .json() do przetworzenia odpowiedzi na obiekt JSON
+                            .then(data => {
+                                console.log(data.status);
+                            })
+                            .catch(error => {
+                                console.error(error);
+                            });
+                        
+                    }
+                if (doneTasksContainer.contains(element)){
+                        doneTasksContainer.removeChild(element);
+                        fetch("/Delete-From-bought",{
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "Application/json"
+                            },
+                            body: JSON.stringify({
+                                taskId: taskId
+                            })})
+                            .then(response => response.json()) // Dodano .json() do przetworzenia odpowiedzi na obiekt JSON
+                            .then(data => {
+                                console.log(data.status);
+                            })
+                            .catch(error => {
+                                console.error(error);
+                            });
+                    }
+                updateTaskCount()
+                updateFinishedTaskCount()
+                return
+            }
+
+
+            // Jeśli pole wyboru jest zaznaczone, przenieś zadanie do kontenera z ukończonymi zadaniami
+            setTimeout(function(){
+                    setTimeout(() => {
+                    let isPlaying = false;
+                        if (!isPlaying) {
+                            isPlaying = true;
+                            const selectedSound = localStorage.getItem('selected_sound');
+                            audio.src = selectedSound ? selectedSound : 'complete.mp3'; // Jeśli selected_sound istnieje, użyj jego wartości; w przeciwnym razie użyj 'complete.mp3'
+                            audio.play().then(() => {
+                                isPlaying = false; // Po zakończeniu odtwarzania, ustaw flagę isPlaying na false
+                            }).catch(error => {
+                            });
+                        }
+                },400)
+                if (checkbox.checked) {
+
+                    fetch('/Product-bought', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            taskId: taskId // Przekazujemy identyfikator zadania
+                        })
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Nie udało się oznaczyć zadania jako ukończone`);
+                        }
+                        // Przeniesienie zadania do kontenera z ukończonymi zadaniami po otrzymaniu potwierdzenia od serwera
+                        // moveTaskToCompletedContainer(element);
+                    })
+                    .catch(error => {
+                        console.error('Błąd:', error);
+                    })
+
+                    // Usuń zadanie z listy zadań do zrobienia
+                    if (taskList.contains(element)){
+                        taskList.removeChild(element);
+                    }
+
+
+                     // Dodaj zadanie do kontenera z ukończonymi zadaniami
+                    doneTasksContainer.appendChild(element);
+
+                    updateFinishedTaskCount();
+                    updateTaskCount();
+
+                    return
+
+                } else {
+                    // Jeśli pole wyboru jest odznaczone, przenieś zadanie z powrotem do listy zadań do zrobienia
+
+                    fetch('/Product-not-bought', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            taskId: taskId // Przekazujemy identyfikator zadania
+                        })
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Nie udało się przywrócić zadania');
+                        }
+                        // Przeniesienie zadania do kontenera z zadaniami do wykonania po otrzymaniu potwierdzenia od serwera
+                        // moveTaskToToDoContainer(element);
+                    })
+                    .catch(error => {
+                        console.error('Błąd:', error);
+                    });
+
+                    // Usuń zadanie z kontenera z ukończonymi zadaniami
+                    if (doneTasksContainer.contains(element)){
+                        doneTasksContainer.removeChild(element);
+                    }
+
+
+                    // Dodaj zadanie z powrotem do listy zadań do zrobienia
+                    unfinishedTasksContainer.appendChild(element);
+
+                    updateFinishedTaskCount();
+                    updateTaskCount();
+                    
+                    return
+                }
+
+            },250)
+    }
+
+
+
+
+        function createTask() {
+            var task_name = document.getElementById('task_title').value;
+            var taskList = document.getElementById("taskList");
+            var newTask = document.createElement("div");
+            var content_tasks = document.querySelector('content_tasks')
+
+
+            var checkboxId = 'checkbox_' + zadanie_count; // Tworzymy unikalny identyfikator checkboxa
+            newTask.className = "zadanie";
+            newTask.innerHTML = `
+            <label class="custom-checkbox">
+                <input type="checkbox" class="task_checkbox"  id="${checkboxId}" data-task-id="${zadanie_count}" hidden>
+                <span></span>
+            </label>
+
+            <div>&nbsp;&nbsp;&nbsp;${task_name}&nbsp;&nbsp; <i class="fa-solid fa-pencil" id="name_icon" onclick="EditName(event)"></i> 
+                <lord-icon
+                    id="delete-button"
+                    class="trashcan"
+                    src="https://cdn.lordicon.com/skkahier.json"
+                    trigger="hover"
+                    style="width:27px;height:27px">
+                </lord-icon>
+            </div>`;
+            taskList.appendChild(newTask);
+
+            var pencilIcon = newTask.querySelector("#name_icon");
+            pencilIcon.onclick = function(event) {
+                event.stopPropagation(); // Zapobiegamy dalszej propagacji zdarzenia
+                EditName(event); // Wywołujemy funkcję EdytujNazwe() po kliknięciu na ikonkę ołówka
+            };
+
+
+
+            newTask.addEventListener('click', function(event) {
+            toggleCheckbox(event, this);
+        });
+
+            updateTaskCount();
+            addProductToDatabase(zadanie_count, task_name)
+            zadanie_count +=1
+        }
+
+
+        function EditName(event) {
+            var targetElement = event.target || event.srcElement; // Wybierz odpowiedni element, który został kliknięty
+            var taskNameElement = targetElement.parentNode; // Pobierz rodzica ikony ołówka, który zawiera nazwę zadania
+            var taskName = taskNameElement.textContent.trim(); // Pobierz bieżącą nazwę zadania i usuń ewentualne białe znaki na początku i końcu
+            var newTaskName = prompt("Edytuj nazwę zadania:", taskName); // Wyświetl okno dialogowe z prośbą o nową nazwę zadania
+            
+            
+            var checkbox = taskNameElement.parentNode.querySelector('input[type=checkbox]');
+            var taskId = checkbox.dataset.taskId; // Pobieramy identyfikator zadania z atrybutu data-task-id
+
+            // Sprawdź, czy użytkownik wprowadził nową nazwę i czy nie nacisnął przycisku Anuluj
+            if (newTaskName !== '' && newTaskName !== null) {
+                // Tworzymy nowy element <i> reprezentujący ikonę ołówka
+                var pencilIcon = document.createElement("i");
+                pencilIcon.className = "fa-solid fa-pencil";
+                pencilIcon.id = "name_icon";
+
+                var trashcan = document.createElement("lord-icon");
+                trashcan.className = "trashcan";
+                trashcan.id = "delete-button";
+
+                trashcan.setAttribute("src", "https://cdn.lordicon.com/skkahier.json");
+                trashcan.setAttribute("trigger", "hover");
+                trashcan.setAttribute("style", "width: 27px; height: 27px;");
+
+                // Tworzymy nowy tekstowy węzeł z nową nazwą zadania
+                var newTaskNameTextNode = document.createTextNode(newTaskName);
+
+                // Czyścimy zawartość elementu zawierającego nazwę zadania
+                taskNameElement.innerHTML = '';
+
+                taskNameElement.appendChild(document.createTextNode('ㅤ')); // Dodajemy spację przed ikoną ołówka
+                // Dodajemy nowy tekst z nazwą zadania
+                taskNameElement.appendChild(newTaskNameTextNode);
+
+                // Dodajemy ponownie ikonę ołówka do zmiany nazwy zadania
+                taskNameElement.appendChild(document.createTextNode('ㅤ')); // Dodajemy spację przed ikoną ołówka
+                taskNameElement.appendChild(pencilIcon);
+
+                taskNameElement.appendChild(document.createTextNode('ㅤ')); // Dodajemy spację przed trashcanem
+                taskNameElement.appendChild(trashcan);
+
+                checkbox.checked = !checkbox.checked; // Odwracamy stan zaznaczenia checkboxa
+
+                fetch('/Edited-name-shopping',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        taskName: taskName,
+                        taskId: taskId,
+                        newTaskName: newTaskName
+                    })
+                })
+                .then(response => {
+                    console.log(response.body);
+                })
+                
+
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        function updateTaskCount() {
+            var taskCountElement = document.getElementById('taskCount');
+            var unfinishedTasks = document.querySelectorAll('#taskList .zadanie').length;
+            taskCountElement.textContent = unfinishedTasks;
+        }
+
+        function updateFinishedTaskCount() {
+            var finishedTaskCountElement = document.getElementById('Finished_Task_Count');
+            var finishedTasks = document.querySelectorAll('#Show_Finished_Tasks .zadanie').length;
+            finishedTaskCountElement.textContent = finishedTasks;
+    }
+    
+    function show_more_profile(){
+            const user_login_out = document.getElementById('user_login_out')
+            const User_main_container = document.getElementById('User_main_container')
+
+            let computedStyle_profile = window.getComputedStyle(user_login_out)
+            let login_out_option = computedStyle_profile.display
+
+            if (login_out_option === 'none'){
+                user_login_out.style.display = 'flex'
+                User_main_container.style.borderBottomLeftRadius = '0'
+                User_main_container.style.borderBottomRightRadius = '0'
+            }
+            else{
+                user_login_out.style.display = 'none'
+                User_main_container.style.borderRadius = '.35rem'
+            }
+        }
+
+        async function log_out(){
+            const show_done_tasks = document.getElementById('Show_Finished_Tasks');
+            const taskList = document.getElementById("taskList");
+            const User_main_container = document.getElementById('User_main_container')
+            const login_button = document.querySelector('.login')
+            const sign_up_button = document.querySelector('.sign_up')
+            const user_login_out = document.getElementById('user_login_out')
+            const checkmark = document.getElementById('checkmark')
+            const null_variable = null
+            const settings_icon = document.querySelector('.settings_icon');
+
+            const settings_page = document.querySelector('.main_settings_page')
+            const kurtyna = document.querySelector('.kurtyna');
+                
+
+            taskList.innerHTML = ''; // Wyczyść zawartość listy zadań przed dodaniem nowych zadań
+            show_done_tasks.innerHTML = '';
+            zadanie_count = 0
+            updateTaskCount()
+            updateFinishedTaskCount()
+            ShowSettingsPage()
+
+            settings_page.style.display = 'none';
+            User_main_container.style.display = 'none'
+            kurtyna.style.zIndex = '-100';
+            User_main_container.style.display = 'none'
+            login_button.style.display = 'block'
+            sign_up_button.style.display = 'block'
+            user_login_out.style.display = 'none'
+            settings_icon.style.display = 'none'
+
+            Account_Feedback.innerHTML = 'Wylogowano';
+
+            let checkmarkClone = checkmark.cloneNode(true);
+            checkmarkClone.style.display = 'block';
+
+            Account_Feedback.appendChild(checkmarkClone);
+            setTimeout(function(){
+                Account_Feedback.style.backgroundColor = '#1eb82d'
+                Account_Feedback.style.display = 'flex';
+                setTimeout(function(){
+                    Account_Feedback.style.display = 'none';
+                    checkmarkClone.style.display = 'none'
+                }, 3100);
+            }, 190);
+
+            
+            const end_session = await fetch('/end_session',{
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({null_variable : null_variable})
+            })
+
+
+            location.reload()
+
+            if (!end_session.ok){
+                throw new Error(`HTTP error! status: ${end_session.status}`)
+            }
+        }
+
+
+        function ShowSignUpPage() {
+            const sign_up_page = document.querySelector('.sign_up_page');
+            const login_page = document.querySelector('.login_page');
+            const content = document.getElementById('Website_Content');
+            const kurtyna = document.querySelector('.kurtyna');
+
+            const computedStyle_1 = window.getComputedStyle(sign_up_page); // Pobierz obliczone style
+            let Status_1 = computedStyle_1.display;
+
+            if (Status_1 === 'none') {
+                    sign_up_page.style.display = 'block';
+                    content.style.filter = 'blur(13px)';
+                    kurtyna.style.zIndex = '100';
+            }   else {
+                    sign_up_page.style.display = 'none';
+                    content.style.filter = 'blur(0)';
+                    kurtyna.style.zIndex = '-100';
+            }
+            login_page.style.display = 'none';
+    }
+        function ShowSettingsPageFromThemes(){
+            const themes_page = document.querySelector('.themes_settings_page')
+            const settings_page = document.querySelector('.main_settings_page')
+
+            settings_page.style.display = 'block';
+            themes_page.style.display = 'none'    
+        }
+
+        function ShowSettingsPageFromSound(){
+            const sound_page = document.querySelector('.sound_page')
+            const settings_page = document.querySelector('.main_settings_page')
+        
+            settings_page.style.display = 'block';
+            sound_page.style.display = 'none'    
+        }
+
+        function ShowSettingsPage() {
+                const edit_page = document.querySelector('.settings_page')
+                const settings_page = document.querySelector('.main_settings_page')
+                const User_main_container = document.getElementById('User_main_container')
+                const kurtyna = document.querySelector('.kurtyna');
+                
+                const computedStyle_1 = window.getComputedStyle(settings_page); // Pobierz obliczone style
+                let Status_1 = computedStyle_1.display;
+
+                if (Status_1 === 'none') {
+                        settings_page.style.display = 'block';
+                        User_main_container.style.display = 'none'
+                        kurtyna.style.zIndex = '100';
+                        
+                } else {
+                        settings_page.style.display = 'none';
+                        User_main_container.style.display = 'flex'
+                        kurtyna.style.zIndex = '-100';}
+                edit_page.style.display = 'none'    
+                }
+
+
+        function ShowEditProfile() {
+            const settings_page = document.querySelector('.settings_page')
+            const edit_page = document.querySelector('.main_settings_page')
+            const User_main_container = document.getElementById('User_main_container')
+            const kurtyna = document.querySelector('.kurtyna');
+            
+            const computedStyle_1 = window.getComputedStyle(settings_page); // Pobierz obliczone style
+            let Status_1 = computedStyle_1.display;
+
+            if (Status_1 === 'none') {
+                    settings_page.style.display = 'block';
+                    User_main_container.style.display = 'none'
+                    kurtyna.style.zIndex = '100';
+                    edit_page.style.display = 'none';
+            } else {
+                    settings_page.style.display = 'none';
+                    User_main_container.style.display = 'flex'
+                    kurtyna.style.zIndex = '-100';
+                    edit_page.style.display = 'flex';
+                    
+            
+    }}
+
+    function  ShowEditThemes() {
+            const themes_settings_page = document.querySelector('.themes_settings_page')
+            const edit_page = document.querySelector('.main_settings_page')
+            const User_main_container = document.getElementById('User_main_container')
+            const kurtyna = document.querySelector('.kurtyna');
+            
+            const computedStyle_1 = window.getComputedStyle(themes_settings_page); // Pobierz obliczone style
+            let Status_1 = computedStyle_1.display;
+
+            if (Status_1 === 'none') {
+                    themes_settings_page.style.display = 'block';
+                    User_main_container.style.display = 'none'
+                    kurtyna.style.zIndex = '100';
+                    edit_page.style.display = 'none';
+            } else {
+                    themes_settings_page.style.display = 'none';
+                    User_main_container.style.display = 'flex'
+                    kurtyna.style.zIndex = '-100';
+                    edit_page.style.display = 'flex';
+                    
+            
+    }}
+
+    function ShowEditSound(){
+        const sound_page = document.querySelector('.sound_page')
+        const edit_page = document.querySelector('.main_settings_page')
+        const User_main_container = document.getElementById('User_main_container')
+        const kurtyna = document.querySelector('.kurtyna');
+        
+        const computedStyle_1 = window.getComputedStyle(sound_page); // Pobierz obliczone style
+        let Status_1 = computedStyle_1.display;
+
+        if (Status_1 === 'none') {
+            sound_page.style.display = 'block';
+            User_main_container.style.display = 'none'
+            kurtyna.style.zIndex = '100';
+            edit_page.style.display = 'none';
+        } else {
+            sound_page.style.display = 'none';
+            User_main_container.style.display = 'flex'
+            kurtyna.style.zIndex = '-100';
+            edit_page.style.display = 'flex';      
+    }}
+
+
+    function ShowLoginPage() {
+            const login_page = document.querySelector('.login_page');
+            const sign_up_page = document.querySelector('.sign_up_page');
+            const content = document.getElementById('Website_Content');
+            const kurtyna = document.querySelector('.kurtyna');
+            const login_button = document.querySelector('.login')
+            const sign_up_button = document.querySelector('.sign_up')
+
+            
+            const computedStyle_1 = window.getComputedStyle(login_page); // Pobierz obliczone style
+            let Status_1 = computedStyle_1.display;
+
+            if (Status_1 === 'none') {
+                    login_page.style.display = 'block';
+                    content.style.filter = 'blur(13px)';
+                    kurtyna.style.zIndex = '100';
+                    login_button.style.zIndex = '100000'
+                    sign_up_button.style.zIndex = '100000'
+                    login_button.style.textShadow = '2px 2px 4px rgba(0, 0, 0, 0.7)';
+
+                }else {
+                    login_page.style.display = 'none';
+                    content.style.filter = 'blur(0)';
+                    kurtyna.style.zIndex = '-100';
+                    login_button.style.zIndex = '0'
+                    sign_up_button.style.zIndex = '0'
+                    login_button.style.textShadow = 'none'
+                }
+            sign_up_page.style.display = 'none';
+    }
+
+
+
+
+
+
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('sign_up_passwordInput');
+
+        togglePassword.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+
+            // Zmiana ikony w zależności od typu pola input
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+        });
+        passwordInput.addEventListener('click',function() {
+            togglePassword.style.display = 'block'
+        })
+
+        const toggle_login_password = document.getElementById('toggle_login_password');
+        const login_passwordInput = document.getElementById('login_passwordInput');
+
+        toggle_login_password.addEventListener('click', function() {
+            const type_2 = login_passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            login_passwordInput.setAttribute('type', type_2);
+
+            // Zmiana ikony w zależności od typu pola input
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+        });
+        login_passwordInput.addEventListener('click',function() {
+            toggle_login_password.style.display = 'block'
+        })
+
+        
+
+        let styleSheet = null;
+
+        const SPARK_ELEMENT_WIDTH = 30;
+        const DISTANCE = 40;
+
+        const RANDOMNESS_ON = true;
+
+        function createTransformSteps() {
+            if (Array.from(arguments).length === 0) {
+                throw Exception("arguments to createTransformSteps should never be empty!");
+            }
+
+            const inputSteps = Array.from(arguments);
+            const outputSteps = [inputSteps.shift()];
+            inputSteps.forEach((step, i) => {
+                outputSteps.push(`${outputSteps[i]} ${step}`);
+            });
+
+            return outputSteps;
+        }
+        const dynamicAnimation = (name, rotation) => {
+        if (!styleSheet) {
+            styleSheet = document.createElement("style");
+            styleSheet.type = "text/css";
+            document.head.appendChild(styleSheet);
+        }
+        const randomDist = RANDOMNESS_ON
+            ? Math.floor((Math.random() - 0.5) * DISTANCE * 0.7)
+            : 0;
+
+        const [s1, s2, s3] = createTransformSteps(
+            `translate(-50%, -50%) rotate(${rotation}deg) translate(10px, 0px)`,
+            `translate(${DISTANCE + randomDist}px, 0px) scale(0.5, 0.5)`,
+            `translate(${SPARK_ELEMENT_WIDTH / 2}px, 0) scale(0, 0)`
+        );
+        styleSheet.sheet.insertRule(
+            `@keyframes ${name} {
+            0% {
+            transform: ${s1};
+            }
+            70% {
+            transform: ${s2};
+            }
+            100% {
+            transform: ${s3};
+            }
+        }`,
+            styleSheet.length
+        );
+        };
+
+        document.getElementById("btn").addEventListener("click", (e) => {
+        const center = { x: e.pageX, y: e.pageY };
+        makeBurst(center);
+        });
+
+        const makeBurst = (center) => {
+        for (let i = 0; i < 8; i++) {
+            const randomSpace = RANDOMNESS_ON
+            ? Math.floor(-17 + Math.random() * 34)
+            : 0;
+            makeSpark(center, 45 * i + randomSpace);
+        }
+        };
+        const makeSpark = (center, rotation) => {
+        const div = document.createElement("div");
+        const aniName = `disappear_${rotation}`;
+        dynamicAnimation(aniName, rotation);
+
+        div.classList.add("spark");
+        div.style.left = `${center.x}px`;
+        div.style.top = `${center.y}px`;
+        div.style.animation = `${aniName} 500ms ease-out both`;
+
+        document.body.append(div);
+        };
+
+        
+
+        async function addProductToDatabase(taskId ,taskName) {
+        try {
+            const response = await fetch("/add-product", {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({taskId, taskName})
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const json = await response.json();
+            console.log(json);
+        } catch (error) {
+            console.log('Problem with Fetch/Server: ' + error.message);
+        }
+    }
+
+
+        function displayProducts(tasks) {
+            if (tasks !== 'empty'){
+                const taskList = document.getElementById("taskList");
+                taskList.innerHTML = ''; // Wyczyść zawartość listy zadań przed dodaniem nowych zadań
+
+                if (tasks){
+                tasks.forEach(task => {
+                    const newTask = document.createElement("div");
+                    const {taskId, task_name} = task;
+                    
+
+                    var checkboxId = 'checkbox_' + zadanie_count; // Tworzymy unikalny identyfikator checkboxa
+                    newTask.className = "zadanie";
+                    newTask.setAttribute('onclick', 'toggleCheckbox(event,this)');
+                    newTask.innerHTML = `
+                    <label class="custom-checkbox">
+                        <input type="checkbox" class="task_checkbox" id="${checkboxId}" data-task-id="${task.taskid}" hidden>
+                        <span></span>
+                    </label>
+
+                    <div>&nbsp;&nbsp;&nbsp;${task_name}&nbsp;&nbsp;<i class="fa-solid fa-pencil" id="name_icon" onclick="EditName(event)"></i>  
+                        <lord-icon
+                            id="delete-button"
+                            class="trashcan"
+                            src="https://cdn.lordicon.com/skkahier.json"
+                            trigger="hover"
+                            style="width:27px;height:27px">
+                        </lord-icon>
+                    </div>`;
+                    // Dodaj nowe zadanie do listy zadań
+                    taskList.appendChild(newTask);
+                    zadanie_count +=1
+                })}
+
+                // Zaktualizuj liczbę zadań
+                updateTaskCount()}
+    }
+
+
+
+
+        function displayBoughtProducts(tasks) {
+            if (tasks !== 'empty'){
+                const FinishedtaskList = document.getElementById("Show_Finished_Tasks");
+                FinishedtaskList.innerHTML = ''; // Wyczyść zawartość listy zadań przed dodaniem nowych zadań
+
+                if (tasks){
+                tasks.forEach(task => {
+                    const newTask = document.createElement("div");
+                    const {taskId, task_name} = task;
+
+                    
+
+
+                    var checkboxId = 'checkbox_' + zadanie_count; // Tworzymy unikalny identyfikator checkboxa
+                    newTask.className = "zadanie";
+                    newTask.setAttribute('onclick', 'toggleCheckbox(event,this)');
+                    newTask.innerHTML = `
+                    <label class="custom-checkbox">
+                        <input type="checkbox" id="${checkboxId}" class="task_checkbox" data-task-id="${task.taskid}" hidden checked>
+                        <span></span>
+                    </label>
+
+                    <div>&nbsp;&nbsp;&nbsp;${task_name}&nbsp;&nbsp;<i class="fa-solid fa-pencil" id="name_icon" onclick="EditName(event)"></i>  
+                        <lord-icon
+                            id="delete-button"
+                            class="trashcan"
+                            src="https://cdn.lordicon.com/skkahier.json"
+                            trigger="hover"
+                            style="width:27px;height:27px">
+                        </lord-icon>
+                    </div>`;
+                    // Dodaj nowe zadanie do listy zadań
+                    FinishedtaskList.appendChild(newTask);
+                    zadanie_count +=1
+                })}
+
+                // Zaktualizuj liczbę zadań
+                updateFinishedTaskCount()}
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+    
+</html>
