@@ -36,11 +36,11 @@ app.use(session({
 // Przechowuj użytkowników w pamięci dla uproszczenia
 const { Pool } = require('pg');
 const pool = new Pool({
-    user: POSTGRES_USER,
-    host: PGHOST,
-    database: POSTGRES_DB,
-    password: PGPASSWORD,
-    port: PGPORT
+    user: process.env.POSTGRES_USER,
+    host: process.env.PGHOST,
+    database: process.env.POSTGRES_DB,
+    password: process.env.PGPASSWORD,
+    port: process.env.PGPORT
 });
 
 
