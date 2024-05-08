@@ -4,7 +4,7 @@ const session = require('express-session');
 const app = express();
 
 app.use(express.static('public'));
-app.use(express.json({limit: '1mb'}));
+app.use(express.json({limit: '5mb'}));
 
 const port = process.env.PORT || 3000;
 
@@ -44,6 +44,8 @@ const pool = new Pool({
 });
 
 
+
+const MAX_IMAGE_SIZE_BYTES = 2000000; // 3 MB w bajtach
 
 app.post('/register', async (req, res) => {
     const { email, password, name } = req.body;
@@ -126,23 +128,25 @@ app.post('/login', async (req, res) => {
 });
 
 
-app.post('/Change-profile-image', async (req,res) => {
-    const {image} = req.body
-    const Userid = req.session.userId
+app.post('/Change-profile-image', async (req, res) => {
+    const { image } = req.body;
+    const Userid = req.session.userId;
     try {
-        if(Userid){
+        if (Userid) {
+            if (image.length > MAX_IMAGE_SIZE_BYTES) {
+                throw new Error(`Za duże zdjęcie ${(image.length / 1000000).toFixed(2)}/${(MAX_IMAGE_SIZE_BYTES / 1000000).toFixed(2)} MB`);
+            }
+
             // console.log('Received image URL:', image);
-            await pool.query('UPDATE profile_images SET image_data = $1 WHERE user_id = $2;',[image,Userid])
+            await pool.query('UPDATE profile_images SET image_data = $1 WHERE user_id = $2;', [image, Userid]);
 
-            res.json({status: "success" , message: "Zaktualizowano zdjęcie użytkownika"})
+            res.json({ status: "success", message: "Zaktualizowano zdjęcie użytkownika" });
         }
+    } catch (error) {
+        console.log(`Błąd podczas zmieniania zdjęcia użytkownika: ${error.message}`);
+        res.json({ status: 'error', message: error.message });
     }
-    catch (error) {
-        console.log(`Błąd podczas zmieniania zjdęcia użytkownika`);
-        res.json({status: 'error', message: 'Za duże zdjęcie'})
-    }
-
-})
+});
 
 
 app.post('/ChangeTheme', async (req, res) => {
