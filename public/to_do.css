@@ -29,6 +29,7 @@ body{
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     position: relative;
     display: inline-block;
+    
 }
 .heading .active{
     margin-right: 5rem;
@@ -721,7 +722,10 @@ body{
     width: 440px;
     height: 690px;
     background-color: #ffffff;
-    border-radius: 6.5%;
+    border-top-left-radius: 6.5%;
+    border-top-right-radius: 6.5%;
+    border-bottom-left-radius: 6.5%;
+    border-bottom-right-radius: 6.5%;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     font-family: lexend;
     font-weight: 500;
@@ -1537,6 +1541,9 @@ body{
     width: 100%;
     height: 100%;
 }
+.web_content #visual_mobile{
+    display: none;
+}
 
 .web_content .task_container{
     padding: 2rem;
@@ -1545,8 +1552,12 @@ body{
     background: rgba( 255, 255, 255, 0.35 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 32px );
-    border-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
+
 
     
 }
@@ -1933,3 +1944,756 @@ body{
 
 
 
+@media (max-width: 435px) {
+    /* Tutaj Klasa i jej właściwość */
+
+
+
+    
+    .heading{
+        width: 100%;
+        height: 8%;
+        background: linear-gradient(to right, #6378f0, hsl(223, 100%, 78%)), url(Images/background.svg);
+        background-size: cover, cover; /* pierwsza wartość dla gradientu, druga dla obrazu */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid #000000;
+    }
+    .heading a{
+        transform: translateX(-110%);
+    }
+
+    /* Ustawienie szerokości linii na 100% domyślnie */
+    .heading .active::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #ffffff;
+    }
+
+    
+
+    .heading .active{
+        margin-right: 2.7rem;
+    
+    }
+    
+    
+    .login {
+        padding: 5px 19px; /* Wielkość paddingu (góra/dół lewo/prawo) */
+        font-size: .7rem; /* Wielkość czcionki */
+        margin-right: .7rem; /* Margines (góra/dół lewo/prawo) */
+        border-radius: 7px; /* Zaokrąglenie krawędzi */
+    }
+    .sign_up{ 
+        padding: 5px 19px; /* Wielkość paddingu (góra/dół lewo/prawo) */
+        font-size: .7rem; /* Wielkość czcionki */
+        border-radius: 7px; /* Zaokrąglenie krawędzi */
+    }
+
+
+
+    /* Dodaj klasy dla wielkiego kwadratu */
+    .login_page {
+        width: 380px;
+        height: 570px;
+    }
+
+    
+    
+    /* Dodaj styl dla inputów */
+    .login_page input {
+        margin: 15px auto;
+        padding: 8px;
+        font-size: 14px;
+    }
+    
+    /* Dodaj styl dla przycisku w wielkim kwadracie */
+    .login_page button {
+        font-size: 17px;
+    }
+
+    
+    .sign_up_page{
+        width: 400px;
+        height: 620px;
+    
+    }
+    
+    /* Dodaj styl dla inputów */
+    .sign_up_page input {
+        margin: 15px auto;
+        padding: 8px;
+        font-size: 14px;
+    }
+    
+    /* Dodaj styl dla przycisku w wielkim kwadracie */
+    .sign_up_page button {
+        font-size: 17px;
+    }
+
+    .sign_up_info #sign_requirement i{
+        font-size: 18px;
+    }
+
+    .sign_up_info .name i{
+        top: 27%;
+    }
+    .sign_up_info .email i{
+        top: 39%;
+    }
+    .sign_up_info .password i{
+        top: 51%;
+    }
+    .sign_up_info .password #togglePassword{
+        top: 51%;
+    }
+    .sign_up_page .sign_up_options .google .google_text{
+        font-size: 16px;
+    }
+    
+    .login_info #login_requirement input{
+        margin-top: .3rem;
+    }
+    
+    .login_info #login_requirement i{
+        font-size: 18px;
+    }
+    
+    .login_info .email i{
+        top: 40%;
+    }
+    .login_info .password i{
+        top: 53%;
+    }
+    .login_page .login_options .google .google_text{
+        font-size: 16px;
+    }
+    
+    
+
+    .login_info .password #toggle_login_password{
+        top: 53%;
+    }
+    .heading .account_creation_container{
+        width: 25vh;
+        height: 7.1%;
+    }
+ 
+    .heading .account_creation_container .User_profile{
+        width: 70%;
+        margin-right: 65px;
+    
+    }
+    
+    .heading .account_creation_container .User_profile .User_information{
+        width: 70%;
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+    
+    }
+    .heading .account_creation_container .User_profile .User_log_out{
+        width: 69.8%;
+        height: 40px;
+        font-size: 14px;
+    }
+    .log_out_icon{
+        font-size: 19px;
+    }
+
+    .heading .account_creation_container .User_profile .login_icon{
+        width: 38px;
+        height: 38px;
+        margin-left: 5px;
+        margin-right: 5px;
+        border: 1px solid lightgrey;
+    }
+    .heading .account_creation_container .User_profile .User_name {
+        font-size: 13.5px;
+        letter-spacing: .6px;
+        margin-top: 12px;
+        max-width: 100%; /* Ograniczenie szerokości tekstu do maksymalnej szerokości kontenera */
+        min-width: 80px;
+        word-wrap: break-word; /* Przenoszenie tekstu do kolejnych linii, gdy przekracza szerokość kontenera */
+    }
+    .heading .account_creation_container .User_profile .User_email{
+        display: none;
+    }
+
+ 
+    .settings_icon{
+        width: 60px;
+        height: 100%;
+    }
+    
+    .settings_icon .settings_icon_box{
+        height: 85%;
+        width: 85%;  
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+    
+    .settings_icon .settings_icon_box img{
+        height: 90%;
+        width: 90%;
+    }
+    
+    
+    .settings_page {
+        transform: translate(-50%, -50%);
+        width: 380px;
+        height: 720px;
+        border-radius: 25px;
+    
+    }
+    .main_settings_page{
+        transform: translate(-50%, -40%);
+        width: 440px;
+        height: 650px;
+        border-top-left-radius: 10%;
+        border-top-right-radius: 10%;
+        border-bottom-left-radius: 0%;
+        border-bottom-right-radius: 0%;
+        
+    }
+    
+    .themes_settings_page{
+        transform: translate(-50%, -40%);
+        width: 440px;
+        height: 650px;
+        border-top-left-radius: 10%;
+        border-top-right-radius: 10%;
+        border-bottom-left-radius: 0%;
+        border-bottom-right-radius: 0%;
+     
+    }
+    
+    .sound_page{
+        transform: translate(-50%, -40%);
+        width: 440px;
+        height: 650px;
+        border-top-left-radius: 10%;
+        border-top-right-radius: 10%;
+        border-bottom-left-radius: 0%;
+        border-bottom-right-radius: 0%;
+    }
+    
+
+   
+    
+    
+    
+    #cookies {
+        position: fixed;
+        bottom: 25px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 330px;
+        height: 170px;
+    }
+    .cookies-container{
+        width: 95%;
+        height: 95%;   
+    }
+    .cookies-container .subcontainer .cookies button{
+        transform: translateY(-36%);
+        
+    }
+
+    
+    
+    
+    
+    .web_content{
+        width: 100%;
+        height: 92.6vh;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative; /* Dodaj pozycję względną, aby ustawić element img absolutnie */
+    }
+    
+    .web_content #visual {
+        display: none;
+    }
+
+    .web_content #visual_mobile{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    .web_content .task_container{
+        padding: .4rem;
+        width: 95% ;
+        height: 90%;
+        transform: translate(4%, 4% );
+        border-top-left-radius: 14px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        background: rgba(255, 255, 255, 0.101);
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 16px );
+
+    }
+    
+    .web_content .Create_task {
+        padding: .5rem;
+        width: 100%;
+        height: 90px;
+    }
+    
+    .web_content .Create_task .button_create_task{
+        padding: .7rem;
+        font-size: .5rem;
+        font-family: lexend;
+        font-weight: 700;
+        color: rgb(255, 255, 255);
+        border: none;
+        border-radius: .1rem;
+        background: linear-gradient(30deg, rgb(123, 54, 242) 0%, rgb(195, 54, 242) 100%);
+        transition: .2s ease-out;
+    }
+
+    
+    
+    
+    .web_content .Create_task .title_box{
+        width: 70%;
+        height: 24.5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .web_content .Create_task #title{
+        font-size: .85rem;
+        font-family: lexend;
+        font-weight: 600;
+        color:  #ffffff;
+    
+    }
+    
+    
+    
+    
+    .web_content .Create_task .requirements {
+        width: 89%;
+        height: 63px;
+        display: flex;
+        float: right;
+        justify-content: space-between;
+        margin: 0px;
+        border-radius: 10px;
+        padding: 0 27px;
+        border: 1px solid lightgrey;
+        background: linear-gradient(30deg, hsl(240, 43%, 54%), hsl(240, 100%, 85%));
+        background-size: cover;
+    }
+    
+    
+    .web_content .task_container .tasks{
+        display: inline-block;
+        padding: 1rem;
+        width: 100%;
+        height: 45%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        display: none;
+    
+    }
+    .web_content .task_container .tasks #sort_label{
+        font-size: 1.4rem;
+        font-family: Poiret One ;
+        margin-bottom: 2rem;
+    }
+    
+    .web_content .task_container .tasks .Sort{
+        font-size: 1.1rem;
+        font-family: Inconsolata;
+        margin-bottom: 2rem;
+    }
+    
+    #task_importance{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 180px;
+        height: 100%;
+        border-radius: .15rem;
+        color: white;
+        font-weight: 600;
+        font-size: 1.2rem;
+    }
+    
+    .zadanie{
+        display: flex;
+        width: 100%;
+        height: 45px;
+        background-color: white;
+        border: 1px solid lightslategray;
+        margin-bottom: 10px; /* Dodaj margines na dole każdego zadania */
+        border-radius: .15rem;
+        align-items: center;
+        margin-right: 1.5rem;
+        justify-content: space-between;
+        font-size: 1.1rem;
+        font-family: Inconsolata;
+        
+    }
+    .zadanie i{
+        padding: .5rem;
+    }
+    
+    .zadanie i:hover{
+        cursor: pointer;
+        transform: rotate(6deg);
+    }
+    
+    #delete-button{
+        display: none;
+        transform: translateY(5px);
+    }
+    
+    .zadanie:hover #delete-button{
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .task_input{
+        width: 100px;
+    }
+    
+    .task_input .Low_part{
+        margin-top: .2rem;
+        width: 95%;
+        height: 31px;
+        text-align: center;
+        transform: translateX(-20%);
+    }
+    
+    #task_title{
+        width: 90%;
+        height: 90%;
+        border-radius: 5px;
+        font-size: 15px;
+        font-family: lexend;
+    }
+    #task_deadline{
+        width: 90%;
+        height: 90%;
+        border-radius: 5px;
+        font-size: 15px;
+        font-family: lexend;
+    }
+    
+    .Low_part .box_for_importance{
+        width: 90%;
+        height: 100%;
+        background-color: white;
+        border: 1px solid rgb(198, 198, 198);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        border-radius: 4px;
+        padding: .1px;
+    }
+    
+    .task_input .Low_part input{
+        text-align: center;
+        border: 1px solid rgb(160, 160, 160);
+    }
+    
+    
+    .task_input #squares{
+    
+        display: inline-block;
+      }
+      
+      .square {
+        margin-top: .5rem;
+        width: 30px;
+        height: 20px;
+        cursor: pointer;
+        border-radius: .3rem;
+      }
+      
+      .green {
+        background-color: #00C874;
+      }
+      
+      .yellow {
+        width: 35px;
+        height: 25px;
+        background-color: #FDAA3D;
+      }
+      
+      .red {
+        width: 40px;
+        height: 30px;
+        background-color: #E2445C;
+        margin-bottom: 3px;
+      }
+    .task_input #squares:hover{
+        border: 1px solid black;
+    }
+    .enlarged {
+        transform: scale(1.1);
+        border: 1px solid black;
+      }
+    
+    
+    
+    
+      .custom-checkbox span {
+        margin-top: .2rem;
+        margin-left: 1rem;
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background-color: #ffffff;
+        border-radius: 2rem;
+        border: 1px solid #2248AD;
+        position: relative;
+        transition: .3s;
+      }
+      
+      .custom-checkbox span:after {
+        content: "";
+        position: absolute;
+        display: none;
+        left: 7.7px;
+        top: 2.7px;
+        width: 7.5px;
+        height: 14px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+        transition: .3s;
+      }
+      .custom-checkbox input:hover ~ span {
+        cursor: pointer;
+        background-color: #567ce4;
+      }
+    
+      .custom-checkbox input:hover~ span:after {
+        display: block;
+      }
+    
+      .custom-checkbox input:checked ~ span {
+        background-color: #3256ba
+      }
+    
+    
+      .custom-checkbox input:checked ~ span:after {
+        display: block; 
+      }
+      .custom-checkbox input:checked ~ .zadanie {
+        border: 1px solid rgb(255, 0, 0);
+      }
+      
+      .web_content .Done_tasks{
+        margin-top: .3rem;
+        border: 1px dashed lightgrey;
+        display: inline-block;
+        padding: 1rem;
+        width: 100%;
+        height: 5%;
+        border-radius: .25rem;
+    }
+    .web_content .Done_tasks .content_tasks{
+        font-size: 1rem;
+        font-family: Inconsolata;
+    }
+    .web_content .Done_tasks  .hr_done_tasks{
+        float: left;
+        width: 100%;
+        color: lightslategrey;
+    }
+    
+    .web_content .show_done_tasks{
+        display: inline-block;
+        padding: 1rem;
+        width: 100%;
+        height: 45%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        display: none;
+    
+    }
+    .web_content .task_container .show_done_tasks::-webkit-scrollbar {
+        width: 10px;
+    }
+    
+    .web_content .task_container .show_done_tasks::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    
+    }
+    
+    .web_content .task_container .show_done_tasks::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: .15rem;
+    }
+    
+    .web_content .task_container .Show_to_do_tasks{
+        margin-top: 1.2rem;
+        border: 1px dashed lightgrey;
+        display: inline-block;
+        padding: 1rem;
+        width: 100%;
+        height: 5%;
+        border-radius: .25rem;
+    }
+    .web_content .task_container .Show_to_do_tasks .To_do_tasks{
+        font-size: 1rem;
+        font-family: Inconsolata;
+    }
+    
+    
+    
+    
+    :root {
+        --codepen-bg: #1d1e22;
+      }
+      
+    
+      
+      #btn{
+        height: 70px;
+        width: 300px;
+        border-radius: .8rem;
+        border: solid 3px white;
+        background-color: transparent;
+        cursor: pointer;
+        outline: none;
+        color: white;
+        font-size: 16px;
+        font-family: Bodoni MT, Bodoni 72, Didot, Didot LT STD, Hoefler Text, Garamond,
+          Times New Roman, serif;
+        
+      }
+      
+      .spark {
+        position: absolute;
+        width: 30px;
+        height: 8px;
+        border-radius: 3px;
+        background-color: white;
+        transform: none;
+        border: 1px solid black;
+      }
+      
+    
+      /* <i class="fa-solid fa-delete-left" style="color: #2b2b2b;"></i> 
+     */
+
+
+    .heading a{
+        font-size: 2vh;
+    }
+
+
+    .heading .account_creation_container .User_profile .User_information{
+        width: 18%;
+        height: 100%;
+    }
+
+}
+
+
+
+
+@media (max-width: 370px){
+    .sign_up_page .sign_up_options .google .google_text{
+        font-size: 13px;
+    }
+    .login_page .login_options .google .google_text{
+        font-size: 13px;
+    }
+
+    .login_page {
+        width: 370px;
+        height: 590px;
+    }
+
+    .sign_up_page{
+        width: 370px;
+        height: 620px;
+    }
+
+    .sign_up_page .sign_up_options .sign_up_options_text{
+        font-size: 17px;
+    }
+    .login_page .login_options .login_options_text{
+        font-size: 17px;
+    }
+
+    .heading a{
+        font-size: 1.6vh;
+        transform: translateX(-130%);
+    }
+
+
+    
+    
+    .settings_page {
+        transform: translate(-50%, -50%);
+        width: 340px;
+        height: 680px;
+        border-radius: 25px;
+    
+    }
+    .main_settings_page{
+        transform: translate(-50%, -40%);
+        width: 380px;
+        height: 650px;
+        border-top-left-radius: 10%;
+        border-top-right-radius: 10%;
+        border-bottom-left-radius: 0%;
+        border-bottom-right-radius: 0%;
+        
+    }
+    
+    .themes_settings_page{
+        transform: translate(-50%, -40%);
+        width: 380px;
+        height: 650px;
+        border-top-left-radius: 10%;
+        border-top-right-radius: 10%;
+        border-bottom-left-radius: 0%;
+        border-bottom-right-radius: 0%;
+     
+    }
+    
+    .sound_page{
+        transform: translate(-50%, -40%);
+        width: 380px;
+        height: 650px;
+        border-top-left-radius: 10%;
+        border-top-right-radius: 10%;
+        border-bottom-left-radius: 0%;
+        border-bottom-right-radius: 0%;
+    }
+
+    .settings_page .settings_content .button_box button{
+        transform: translateY(-70%);
+    
+    }
+    .settings_page .settings_content #SaveTheProfileData button:hover{
+        background-color: #6b81fa;
+        cursor: pointer;
+        transform: none;
+    }
+
+
+}
