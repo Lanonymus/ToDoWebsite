@@ -1713,6 +1713,9 @@ body{
     display: none;
     transform: translateY(5px);
 }
+.zadanie #delete-button-mobile{
+    display: none;
+}
 
 .zadanie:hover #delete-button{
     display: inline-block;
@@ -2233,7 +2236,7 @@ body{
 
     .web_content .task_container{
         padding: .4rem;
-        width: 95% ;
+        width: 100% ;
         height: 90%;
         transform: translate(4%, 4% );
         border-top-left-radius: 14px;
@@ -2312,7 +2315,7 @@ body{
     
     }
     .web_content .task_container .tasks #sort_label{
-        font-size: 1.4rem;
+        font-size: 1.1rem;
         font-family: Poiret One ;
         margin-bottom: 2rem;
     }
@@ -2327,47 +2330,55 @@ body{
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 180px;
+        width: 80px;
         height: 100%;
         border-radius: .15rem;
         color: white;
         font-weight: 600;
-        font-size: 1.2rem;
+        font-size: .8rem;
     }
     
-    .zadanie{
+    .zadanie {
         display: flex;
-        width: 100%;
+        width: 88%;
         height: 45px;
         background-color: white;
         border: 1px solid lightslategray;
-        margin-bottom: 10px; /* Dodaj margines na dole każdego zadania */
+        margin-bottom: 10px;
         border-radius: .15rem;
         align-items: center;
         margin-right: 1.5rem;
         justify-content: space-between;
-        font-size: 1.1rem;
+        font-size: 1rem;
         font-family: Inconsolata;
-        
-    }
-    .zadanie i{
-        padding: .5rem;
+        position: relative; /* Ustaw kontener jako pozycję względną */
     }
     
-    .zadanie i:hover{
+    /* Stylizacja ikony */
+    #delete-button{
+        display: block;
+        position: absolute; /* Ustaw pozycję ikony jako absolutną */
+        top: 0; /* Umieść ikonę na górze */
+        right: 0; /* Umieść ikonę na prawo */
+        transform: translate(20%, -40%); /* Przesuń ikonę w odpowiednie miejsce */
+    }
+    
+    /* Stylizacja ikony po najechaniu */
+    .zadanie:hover i:hover {
         cursor: pointer;
         transform: rotate(6deg);
     }
+
+
     
-    #delete-button{
-        display: none;
-        transform: translateY(5px);
-    }
+    /* Ukrywanie ikony po najechaniu na cały element .zadanie */
+
     
-    .zadanie:hover #delete-button{
-        display: inline-block;
-        cursor: pointer;
-    }
+
+
+
+
+
 
     .task_input{
         width: 100px;
@@ -2429,6 +2440,8 @@ body{
       }
       
       .green {
+        width: 30px;
+        height: 20px;
         background-color: #00C874;
       }
       
