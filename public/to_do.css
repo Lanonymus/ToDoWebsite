@@ -620,8 +620,8 @@ body{
 
 .heading .account_creation_container .User_profile .login_icon{
     display: block;
-    width: 65px;
-    height: 65px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     background: url(Images/profile_icon.svg);
     background-size: cover;
