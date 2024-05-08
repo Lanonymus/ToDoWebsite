@@ -760,7 +760,7 @@
 
     var priorityValues = {
         'Brak': 0,
-        'Niezbyt istotny': 1,
+        'Nieistotny': 1,
         'Ważny': 2,
         'Pilne': 3
     };
@@ -1604,7 +1604,7 @@
         // Jeśli pole wyboru jest zaznaczone, przenieś zadanie do kontenera z ukończonymi zadaniami
 
         const deleteProduct = event.target.id == 'delete-button';
-        if (deleteProduct) {
+        if (deleteProduct || deleteMobile) {
             if (taskList.contains(element)) {
                 taskList.removeChild(element);
 
@@ -1765,7 +1765,7 @@
         if (activeSquare) {
             if (activeSquare.classList.contains('green')) {
                 priorityClass = 'green';
-                priorityLabel = 'Niezbyt istotny';
+                priorityLabel = 'Nieistotny';
             } else if (activeSquare.classList.contains('yellow')) {
                 priorityClass = 'yellow';
                 priorityLabel = 'Ważny';
@@ -2236,7 +2236,7 @@
 
                     let priorityClass;
                     switch (task_priority) {
-                        case 'Niezbyt istotny':
+                        case 'Nieistotny':
                             priorityClass = 'green';
                             break;
                         case 'Ważny':
@@ -2264,7 +2264,7 @@
                             trigger="hover"
                             style="width:27px;height:27px">
                         </lord-icon>
-                        </div>   
+                    </div>   
                     <div>${deadline}<i class="fa-solid fa-calendar-days"></i> </div>                          
                     <div class="${priorityClass}" id="task_importance">${task_priority}</div>`;
                     // Dodaj nowe zadanie do listy zadań
@@ -2301,7 +2301,7 @@
 
                     let priorityClass;
                     switch (task_priority) {
-                        case 'Niezbyt istotny':
+                        case 'Nieistotny':
                             priorityClass = 'green';
                             break;
                         case 'Ważny':
