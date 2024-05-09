@@ -8,8 +8,7 @@ body{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    overflow-y: hidden;
-    overflow-x: hidden;
+
 }
 
 .heading{
@@ -1623,6 +1622,24 @@ body{
 
 }
 
+.task_text_box{
+    width: 60vh;
+    height: auto;
+    display: flex;
+    word-wrap: break-word;
+    align-items: center;
+    justify-content: center;
+}
+
+.task_date_box{
+    width: 20vh;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
 
 
 
@@ -1716,7 +1733,6 @@ body{
 
 #delete-button{
     display: none;
-    transform: translateY(5px);
 }
 .zadanie #delete-button-mobile{
     display: none;
@@ -2241,9 +2257,9 @@ body{
 
     .web_content .task_container{
         padding: .4rem;
-        width: 100% ;
+        width: 92% ;
         height: 90%;
-        transform: translate(4%, 4% );
+        transform: translate(3%, 4% );
         border-top-left-radius: 14px;
         border-top-right-radius: 0px;
         border-bottom-left-radius: 0px;
@@ -2255,7 +2271,7 @@ body{
     }
     
     .web_content .Create_task {
-        padding: .5rem;
+        padding: 0rem;
         width: 100%;
         height: 90px;
     }
@@ -2276,7 +2292,7 @@ body{
     
     
     .web_content .Create_task .title_box{
-        width: 70%;
+        width: 60%;
         height: 24.5px;
         display: flex;
         justify-content: center;
@@ -2284,7 +2300,7 @@ body{
     }
     
     .web_content .Create_task #title{
-        font-size: .85rem;
+        font-size: .8rem;
         font-family: lexend;
         font-weight: 600;
         color:  #ffffff;
@@ -2295,23 +2311,24 @@ body{
     
     
     .web_content .Create_task .requirements {
-        width: 89%;
+        width: 61%;
         height: 63px;
         display: flex;
         float: right;
         justify-content: space-between;
-        margin: 0px;
+        margin: 2px;
         border-radius: 10px;
-        padding: 0 27px;
+        padding: 0px 20px;
         border: 1px solid lightgrey;
         background: linear-gradient(30deg, hsl(240, 43%, 54%), hsl(240, 100%, 85%));
         background-size: cover;
+        margin-right: 5%;
     }
     
     
     .web_content .task_container .tasks{
         display: inline-block;
-        padding: 1rem;
+        padding: .5rem;
         width: 100%;
         height: 45%;
         overflow-y: scroll;
@@ -2345,7 +2362,7 @@ body{
     
     .zadanie {
         display: flex;
-        width: 88%;
+        width: 95%;
         min-height: 45px; /* Zamiast height używamy min-height */
         background-color: white;
         border: 1px solid lightslategray;
@@ -2363,6 +2380,15 @@ body{
         height: auto;
         display: flex;
         word-wrap: break-word;
+        font-size: .8rem;
+        align-items: center;
+        justify-content: center;
+    }
+    .task_date_box{
+        width: 100px;
+        height: auto;
+        display: flex;
+        flex-direction: row;
         font-size: .8rem;
         align-items: center;
         justify-content: center;
@@ -2395,7 +2421,8 @@ body{
 
 
     .task_input{
-        width: 100px;
+        width: 85px;
+        height: 50px;
     }
     
     .task_input .Low_part{
@@ -2415,7 +2442,7 @@ body{
     }
     #task_deadline{
         width: 90%;
-        height: 90%;
+        height: 100%;
         border-radius: 5px;
         font-size: 15px;
         font-family: lexend;
@@ -2534,7 +2561,7 @@ body{
         border: 1px dashed lightgrey;
         display: inline-block;
         padding: 1rem;
-        width: 100%;
+        width: 90%;
         height: 5%;
         border-radius: .25rem;
     }
@@ -2550,7 +2577,7 @@ body{
     
     .web_content .show_done_tasks{
         display: inline-block;
-        padding: 1rem;
+        padding: .5rem;
         width: 100%;
         height: 45%;
         overflow-y: scroll;
@@ -2577,15 +2604,14 @@ body{
         border: 1px dashed lightgrey;
         display: inline-block;
         padding: 1rem;
-        width: 100%;
+        width: 90%;
         height: 5%;
         border-radius: .25rem;
     }
     .web_content .task_container .Show_to_do_tasks .To_do_tasks{
         font-size: 1rem;
         font-family: Inconsolata;
-    }
-    
+    }    
     
     
     
@@ -2596,8 +2622,10 @@ body{
     
       
       #btn{
-        height: 70px;
-        width: 300px;
+        margin-right: 0px;
+        margin-left: 0px;
+        height: 65px;
+        width: 90px;
         border-radius: .8rem;
         border: solid 3px white;
         background-color: transparent;
