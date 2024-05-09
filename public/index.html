@@ -656,7 +656,7 @@
                             </button>
                         </div>
                         <div class="Low_part">
-                            <input type="text" required id="task_title">
+                            <input type="text" required id="task_title" maxlength="40">
                         </div>
                     </div>
                     <div class="task_input">
@@ -1804,7 +1804,6 @@
                     <div> 
                         <div class="task_text_box"> 
                             ${task_name}<i class="fa-solid fa-pencil" id="name_icon" onclick="EditName(event)"></i> 
-                        </div>
                             <lord-icon
                                 id="delete-button"
                                 class="trashcan"
@@ -1812,9 +1811,12 @@
                                 trigger="hover"
                                 style="width:27px;height:27px">
                             </lord-icon>
-                        </div>   
-                    <div>${deadline}<i class="fa-solid fa-calendar-days"></i> </div>                          
-                    <div class="${priorityClass}" id="task_importance">${task_priority}</div>`;
+                        </div>
+                        </div>  
+                    <div class="task_date_box">  
+                        <div>${Europe_Time}<i class="fa-solid fa-calendar-days"></i> </div>        
+                    </div>                   
+                    <div class="${priorityClass}" id="task_importance">${priorityLabel}</div>`;
         taskList.appendChild(newTask);
 
         // Dodajemy obsługę kliknięcia na ikonkę ołówka, aby zablokować funkcję toggleCheckbox()
@@ -2261,7 +2263,6 @@
                     <div> 
                         <div class="task_text_box"> 
                             ${task_name}<i class="fa-solid fa-pencil" id="name_icon" onclick="EditName(event)"></i> 
-                        </div>
                             <lord-icon
                                 id="delete-button"
                                 class="trashcan"
@@ -2269,8 +2270,11 @@
                                 trigger="hover"
                                 style="width:27px;height:27px">
                             </lord-icon>
+                        </div>
                         </div>   
-                    <div>${deadline}<i class="fa-solid fa-calendar-days"></i> </div>                          
+                    <div class="task_date_box"> 
+                        <div>${deadline}<i class="fa-solid fa-calendar-days"></i> </div>        
+                    </div>                  
                     <div class="${priorityClass}" id="task_importance">${task_priority}</div>`;
                     // Dodaj nowe zadanie do listy zadań
                     taskList.appendChild(newTask);
@@ -2329,7 +2333,6 @@
                      <div> 
                         <div class="task_text_box"> 
                             ${task_name}<i class="fa-solid fa-pencil" id="name_icon" onclick="EditName(event)"></i> 
-                        </div>
                             <lord-icon
                                 id="delete-button"
                                 class="trashcan"
@@ -2337,8 +2340,11 @@
                                 trigger="hover"
                                 style="width:27px;height:27px">
                             </lord-icon>
+                        </div>
                         </div>   
-                    <div>${deadline}<i class="fa-solid fa-calendar-days"></i> </div>                          
+                    <div class="task_date_box"> 
+                        <div>${deadline}<i class="fa-solid fa-calendar-days"></i> </div>        
+                    </div>                  
                     <div class="${priorityClass}" id="task_importance">${task_priority}</div>`;
                     // Dodaj nowe zadanie do listy zadań
                     FinishedtaskList.appendChild(newTask);
