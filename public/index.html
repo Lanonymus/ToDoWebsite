@@ -1801,18 +1801,20 @@
                         <input type="checkbox" id="${checkboxId}" class="task_checkbox" data-task-id="${zadanie_count}" hidden>
                         <span></span>
             </label>
-
-            <div>${task_name}<i class="fa-solid fa-pencil" id="name_icon"></i> 
-                <lord-icon
-                        id="delete-button"
-                        class="trashcan"
-                        src="https://cdn.lordicon.com/skkahier.json"
-                        trigger="hover"
-                        style="width:27px;height:27px">
-                    </lord-icon>
-                </div>   
-            <div>${Europe_Time}<i class="fa-solid fa-calendar-days"></i></div>                          
-            <div class="${priorityClass}" id="task_importance">${priorityLabel}</div>`;
+                    <div> 
+                        <div class="task_text_box"> 
+                            ${task_name}<i class="fa-solid fa-pencil" id="name_icon" onclick="EditName(event)"></i> 
+                        </div>
+                            <lord-icon
+                                id="delete-button"
+                                class="trashcan"
+                                src="https://cdn.lordicon.com/skkahier.json"
+                                trigger="hover"
+                                style="width:27px;height:27px">
+                            </lord-icon>
+                        </div>   
+                    <div>${deadline}<i class="fa-solid fa-calendar-days"></i> </div>                          
+                    <div class="${priorityClass}" id="task_importance">${task_priority}</div>`;
         taskList.appendChild(newTask);
 
         // Dodajemy obsługę kliknięcia na ikonkę ołówka, aby zablokować funkcję toggleCheckbox()
@@ -2256,15 +2258,18 @@
                         <input type="checkbox" class="task_checkbox" id="${checkboxId}" data-task-id="${task.taskid}" hidden>
                         <span></span>
                 </label>
-                    <div>${task_name}<i class="fa-solid fa-pencil" id="name_icon" onclick="EditName(event)"></i> 
-                        <lord-icon
-                            id="delete-button"
-                            class="trashcan"
-                            src="https://cdn.lordicon.com/skkahier.json"
-                            trigger="hover"
-                            style="width:27px;height:27px">
-                        </lord-icon>
-                    </div>   
+                    <div> 
+                        <div class="task_text_box"> 
+                            ${task_name}<i class="fa-solid fa-pencil" id="name_icon" onclick="EditName(event)"></i> 
+                        </div>
+                            <lord-icon
+                                id="delete-button"
+                                class="trashcan"
+                                src="https://cdn.lordicon.com/skkahier.json"
+                                trigger="hover"
+                                style="width:27px;height:27px">
+                            </lord-icon>
+                        </div>   
                     <div>${deadline}<i class="fa-solid fa-calendar-days"></i> </div>                          
                     <div class="${priorityClass}" id="task_importance">${task_priority}</div>`;
                     // Dodaj nowe zadanie do listy zadań
@@ -2320,18 +2325,21 @@
             <label class="custom-checkbox">
                         <input type="checkbox" id="${checkboxId}" class="task_checkbox" data-task-id="${task.taskid}" hidden checked>
                         <span></span>
-            </label>
-                <div>${task_name}<i class="fa-solid fa-pencil" id="name_icon" onclick="EditName(event)"></i> 
-                        <lord-icon
-                            id="delete-button"
-                            class="trashcan"
-                            src="https://cdn.lordicon.com/skkahier.json"
-                            trigger="hover"
-                            style="width:27px;height:27px">
-                        </lord-icon>
-                    </div>   
-                <div>${deadline}<i class="fa-solid fa-calendar-days"></i> </div>                          
-                <div class="${priorityClass}" id="task_importance">${task_priority}</div>`;
+                </label>
+                     <div> 
+                        <div class="task_text_box"> 
+                            ${task_name}<i class="fa-solid fa-pencil" id="name_icon" onclick="EditName(event)"></i> 
+                        </div>
+                            <lord-icon
+                                id="delete-button"
+                                class="trashcan"
+                                src="https://cdn.lordicon.com/skkahier.json"
+                                trigger="hover"
+                                style="width:27px;height:27px">
+                            </lord-icon>
+                        </div>   
+                    <div>${deadline}<i class="fa-solid fa-calendar-days"></i> </div>                          
+                    <div class="${priorityClass}" id="task_importance">${task_priority}</div>`;
                     // Dodaj nowe zadanie do listy zadań
                     FinishedtaskList.appendChild(newTask);
                     zadanie_count += 1
