@@ -8,6 +8,8 @@ body{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    overflow-y: hidden;
+    overflow-y: hidden;
 
 }
 
@@ -1581,7 +1583,7 @@ body{
 }
 
 .web_content .Create_task .button_create_task{
-    padding: .7rem;
+    padding: .5rem;
     font-size: 1.5rem;
     font-family: lexend;
     font-weight: 700;
@@ -2278,7 +2280,6 @@ body{
     
     .web_content .Create_task .button_create_task{
         padding: .7rem;
-        font-size: .5rem;
         font-family: lexend;
         font-weight: 700;
         color: rgb(255, 255, 255);
@@ -2632,7 +2633,7 @@ body{
         cursor: pointer;
         outline: none;
         color: white;
-        font-size: 16px;
+        font-size: 12px;
         font-family: Bodoni MT, Bodoni 72, Didot, Didot LT STD, Hoefler Text, Garamond,
           Times New Roman, serif;
         
