@@ -8,6 +8,8 @@ body{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .heading{
@@ -1950,7 +1952,7 @@ body{
 
 
 
-@media (max-width: 435px) {
+@media  screen and (max-width: 435px) {
     /* Tutaj Klasa i jej właściwość */
 
 
@@ -2318,13 +2320,13 @@ body{
     
     }
     .web_content .task_container .tasks #sort_label{
-        font-size: 1.1rem;
+        font-size: 1rem;
         font-family: Poiret One ;
         margin-bottom: 2rem;
     }
     
     .web_content .task_container .tasks .Sort{
-        font-size: 1.1rem;
+        font-size: 1rem;
         font-family: Inconsolata;
         margin-bottom: 2rem;
     }
@@ -2344,7 +2346,7 @@ body{
     .zadanie {
         display: flex;
         width: 88%;
-        height: 45px;
+        min-height: 45px; /* Zamiast height używamy min-height */
         background-color: white;
         border: 1px solid lightslategray;
         margin-bottom: 10px;
@@ -2352,9 +2354,18 @@ body{
         align-items: center;
         margin-right: 1.5rem;
         justify-content: space-between;
-        font-size: 1rem;
         font-family: Inconsolata;
         position: relative; /* Ustaw kontener jako pozycję względną */
+        font-size: .8rem;
+    }
+    .task_text_box{
+        width: 100px;
+        height: auto;
+        display: flex;
+        word-wrap: break-word;
+        font-size: .8rem;
+        align-items: center;
+        justify-content: center;
     }
     
     /* Stylizacja ikony */
@@ -2363,7 +2374,7 @@ body{
         position: absolute; /* Ustaw pozycję ikony jako absolutną */
         top: 0; /* Umieść ikonę na górze */
         right: 0; /* Umieść ikonę na prawo */
-        transform: translate(20%, -40%); /* Przesuń ikonę w odpowiednie miejsce */
+        transform: translate(40%, -50%); /* Przesuń ikonę w odpowiednie miejsce */
     }
     
     /* Stylizacja ikony po najechaniu */
@@ -2629,7 +2640,7 @@ body{
 
 
 
-@media (max-width: 370px){
+@media screen and (max-width: 370px){
     .sign_up_page .sign_up_options .google .google_text{
         font-size: 13px;
     }
@@ -2711,5 +2722,5 @@ body{
         transform: none;
     }
 
-
 }
+
