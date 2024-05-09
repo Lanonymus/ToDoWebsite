@@ -2673,24 +2673,24 @@ body{
 
 @media screen and (max-width: 370px){
     .sign_up_page .sign_up_options .google .google_text{
-        font-size: 13px;
+        font-size: 11.5px;
     }
     .login_page .login_options .google .google_text{
-        font-size: 13px;
+        font-size: 11.5px;
     }
 
     .login_page {
-        width: 370px;
-        height: 590px;
+        width: 330px;
+        height: 555px;
     }
 
     .sign_up_page{
-        width: 370px;
-        height: 620px;
+        width: 330px;
+        height: 595px;
     }
 
     .sign_up_page .sign_up_options .sign_up_options_text{
-        font-size: 17px;
+        font-size: 15px;
     }
     .login_page .login_options .login_options_text{
         font-size: 17px;
@@ -2751,6 +2751,20 @@ body{
         background-color: #6b81fa;
         cursor: pointer;
         transform: none;
+    }
+
+    .login_title{
+        font-size: 27px;
+    }
+    .login_title .main_title span{
+        font-size: 15px;
+    }
+    .sign_up_title {
+        font-size: 24px;
+    }
+    .sign_up_info #sign_requirement .class_title{
+        font-size: .8rem;
+        color: #9694AB;
     }
 
 }
