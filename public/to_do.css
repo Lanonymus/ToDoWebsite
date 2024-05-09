@@ -1975,7 +1975,21 @@ body{
 @media  screen and (max-width: 435px) {
     /* Tutaj Klasa i jej właściwość */
 
-
+    #task_name_icon{
+        width: 23px;
+        height: 23px;
+        transform: translateX(-23%);
+    }
+    #task_date_icon{
+        width: 23px;
+        height: 23px;  
+        transform: translateX(-23%);
+    }
+    #task_priority_icon{
+        width: 23px;
+        height: 23px;
+        transform: translateX(-23%);  
+    }
 
     
     .heading{
