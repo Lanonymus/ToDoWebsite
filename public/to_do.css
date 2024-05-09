@@ -1,3 +1,5 @@
+
+
 ::selection {
     background-color: #5178D9;
     color: white;
@@ -2312,7 +2314,7 @@ body{
     
     
     .web_content .Create_task .requirements {
-        width: 61%;
+        width: 62%;
         height: 63px;
         display: flex;
         float: right;
@@ -2422,7 +2424,7 @@ body{
 
 
     .task_input{
-        width: 85px;
+        width: 80px;
         height: 50px;
     }
     
@@ -2438,14 +2440,14 @@ body{
         width: 90%;
         height: 90%;
         border-radius: 5px;
-        font-size: 15px;
+        font-size: 9px;
         font-family: lexend;
     }
     #task_deadline{
         width: 90%;
         height: 100%;
         border-radius: 5px;
-        font-size: 15px;
+        font-size: 9px;
         font-family: lexend;
     }
     
@@ -2476,26 +2478,26 @@ body{
       .square {
         margin-top: .5rem;
         width: 30px;
-        height: 20px;
+        height: 15px;
         cursor: pointer;
-        border-radius: .3rem;
+        border-radius: .2rem;
       }
       
       .green {
-        width: 30px;
-        height: 20px;
+        width: 25px;
+        height: 15px;
         background-color: #00C874;
       }
       
       .yellow {
         width: 35px;
-        height: 25px;
+        height: 20px;
         background-color: #FDAA3D;
       }
       
       .red {
         width: 40px;
-        height: 30px;
+        height: 25px;
         background-color: #E2445C;
         margin-bottom: 3px;
       }
