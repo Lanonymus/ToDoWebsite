@@ -1604,7 +1604,7 @@
         // Jeśli pole wyboru jest zaznaczone, przenieś zadanie do kontenera z ukończonymi zadaniami
 
         const deleteProduct = event.target.id == 'delete-button';
-        if (deleteProduct || deleteMobile) {
+        if (deleteProduct ) {
             if (taskList.contains(element)) {
                 taskList.removeChild(element);
 
