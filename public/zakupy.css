@@ -38,11 +38,7 @@ body{
     position: relative;
     display: inline-block;
 }
-.heading .active{
-    margin-right: 5rem;
-    
 
-}
 .heading a::after{
     content: "";
     position: absolute;
@@ -1479,7 +1475,6 @@ body{
     background-color: rgb(255, 255, 255);
     position: absolute;
     width: 60%;
-    height: 50px;
     border-bottom-left-radius: .35rem;
     border-bottom-right-radius: .35rem;
     top: 93%;
@@ -1487,12 +1482,15 @@ body{
     border: 1px solid black;
     border-top: 1px solid hsl(0, 0%, 83%);
     display: none;
-    transform: translateX(-1px);
     align-items: center;
     justify-content: center;
     font-size: 16px;
     font-family: lexend;
     font-weight: 500;
+    height: 85%;
+    transform: translateX(-1%);
+
+
 }
 
 .heading .account_creation_container .User_profile .User_log_out:hover{
@@ -1734,19 +1732,11 @@ body{
 }
 
 #delete-button{
-    display: none;
-    transform: translateY(5px);
-}
-
-.zadanie:hover #delete-button{
     display: inline-block;
+    transform: translateY(5px);
     margin-left: 20px;
     cursor: pointer;
 }
-
-
-
-
 
 .enlarged {
     transform: scale(1.1);
@@ -1910,4 +1900,630 @@ body{
  */
 
 
+ @media  screen and (max-width: 435px) {
+    /* Tutaj Klasa i jej właściwość */
 
+    #task_name_icon{
+        width: 23px;
+        height: 23px;
+        transform: translateX(-23%);
+    }
+    #task_date_icon{
+        width: 23px;
+        height: 23px;  
+        transform: translateX(-23%);
+    }
+    #task_priority_icon{
+        width: 23px;
+        height: 23px;
+        transform: translateX(-23%);  
+    }
+    #name_icon{
+        width: 13px;
+        height: 13px;
+    }
+
+    
+    .heading{
+        width: 100%;
+        height: 8%;
+        background: linear-gradient(to right, #6378f0, hsl(223, 100%, 78%)), url(Images/background.svg);
+        background-size: cover, cover; /* pierwsza wartość dla gradientu, druga dla obrazu */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid #000000;
+    }
+    .heading a{
+        transform: translateX(-110%);
+    }
+
+    /* Ustawienie szerokości linii na 100% domyślnie */
+    .heading .active::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #ffffff;
+    }
+
+    
+
+    .heading .active{
+        margin-left: 2.6rem;
+    
+    }
+    
+    
+    .login {
+        padding: 5px 19px; /* Wielkość paddingu (góra/dół lewo/prawo) */
+        font-size: .7rem; /* Wielkość czcionki */
+        margin-right: .7rem; /* Margines (góra/dół lewo/prawo) */
+        border-radius: 7px; /* Zaokrąglenie krawędzi */
+    }
+    .sign_up{ 
+        padding: 5px 19px; /* Wielkość paddingu (góra/dół lewo/prawo) */
+        font-size: .7rem; /* Wielkość czcionki */
+        border-radius: 7px; /* Zaokrąglenie krawędzi */
+    }
+
+
+
+    /* Dodaj klasy dla wielkiego kwadratu */
+    .login_page {
+        width: 380px;
+        height: 570px;
+    }
+
+    
+    
+    /* Dodaj styl dla inputów */
+    .login_page input {
+        margin: 15px auto;
+        padding: 8px;
+        font-size: 14px;
+    }
+    
+    /* Dodaj styl dla przycisku w wielkim kwadracie */
+    .login_page button {
+        font-size: 17px;
+    }
+
+    
+    .sign_up_page{
+        width: 400px;
+        height: 620px;
+    
+    }
+    
+    /* Dodaj styl dla inputów */
+    .sign_up_page input {
+        margin: 15px auto;
+        padding: 8px;
+        font-size: 14px;
+    }
+    
+    /* Dodaj styl dla przycisku w wielkim kwadracie */
+    .sign_up_page button {
+        font-size: 17px;
+    }
+
+    .sign_up_info #sign_requirement i{
+        font-size: 18px;
+    }
+
+    .sign_up_info .name i{
+        top: 27%;
+    }
+    .sign_up_info .email i{
+        top: 39%;
+    }
+    .sign_up_info .password i{
+        top: 51%;
+    }
+    .sign_up_info .password #togglePassword{
+        top: 51%;
+    }
+    .sign_up_page .sign_up_options .google .google_text{
+        font-size: 16px;
+    }
+    
+    .login_info #login_requirement input{
+        margin-top: .3rem;
+    }
+    
+    .login_info #login_requirement i{
+        font-size: 18px;
+    }
+    
+    .login_info .email i{
+        top: 40%;
+    }
+    .login_info .password i{
+        top: 53%;
+    }
+    .login_page .login_options .google .google_text{
+        font-size: 16px;
+    }
+    
+    
+
+    .login_info .password #toggle_login_password{
+        top: 53%;
+    }
+    .heading .account_creation_container{
+        width: 25vh;
+        height: 7.1%;
+    }
+ 
+    .heading .account_creation_container .User_profile{
+        width: 70%;
+        margin-right: 65px;
+        margin-top: 4%;
+    }
+    
+    .heading .account_creation_container .User_profile .User_information{
+        width: 70%;
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+    
+    }
+    .heading .account_creation_container .User_profile .User_log_out{
+        font-size: 14px;
+        width: 70%;
+    }
+
+    .log_out_icon{
+        font-size: 19px;
+    }
+
+    .heading .account_creation_container .User_profile .login_icon{
+        width: 35px;
+        height: 35px;
+        margin-left: 2px;
+        margin-right: 2px;
+        border: 1px solid lightgrey;
+    }
+    .heading .account_creation_container .User_profile .User_name {
+        font-size: 13.5px;
+        letter-spacing: .6px;
+        margin-top: 12px;
+        max-width: 100%; /* Ograniczenie szerokości tekstu do maksymalnej szerokości kontenera */
+        min-width: 80px;
+        word-wrap: break-word; /* Przenoszenie tekstu do kolejnych linii, gdy przekracza szerokość kontenera */
+    }
+    .heading .account_creation_container .User_profile .User_email{
+        display: none;
+    }
+
+ 
+    .settings_icon{
+        width: 60px;
+        height: 100%;
+    }
+    
+    .settings_icon .settings_icon_box{
+        height: 85%;
+        width: 80%;  
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        margin-top: 10%;
+    }
+    
+    .settings_icon .settings_icon_box img{
+        height: 90%;
+        width: 90%;
+    }
+    
+    
+    .settings_page {
+        transform: translate(-50%, -50%);
+        width: 380px;
+        height: 720px;
+        border-radius: 25px;
+    
+    }
+    .main_settings_page{
+        transform: translate(-50%, -40%);
+        width: 440px;
+        height: 650px;
+        border-top-left-radius: 10%;
+        border-top-right-radius: 10%;
+        border-bottom-left-radius: 0%;
+        border-bottom-right-radius: 0%;
+        
+    }
+    
+    .themes_settings_page{
+        transform: translate(-50%, -40%);
+        width: 440px;
+        height: 650px;
+        border-top-left-radius: 10%;
+        border-top-right-radius: 10%;
+        border-bottom-left-radius: 0%;
+        border-bottom-right-radius: 0%;
+     
+    }
+    
+    .sound_page{
+        transform: translate(-50%, -40%);
+        width: 440px;
+        height: 650px;
+        border-top-left-radius: 10%;
+        border-top-right-radius: 10%;
+        border-bottom-left-radius: 0%;
+        border-bottom-right-radius: 0%;
+    }
+    
+
+   
+    
+    
+    
+    #cookies {
+        position: fixed;
+        bottom: 25px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 330px;
+        height: 170px;
+    }
+    .cookies-container{
+        width: 95%;
+        height: 95%;   
+    }
+    .cookies-container .subcontainer .cookies button{
+        transform: translateY(-36%);
+        
+    }
+    .web_content #visual {
+        display: none;
+    }
+
+    .web_content #visual_mobile{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+    .heading a{
+        font-size: 2vh;
+    }
+
+
+    .heading .account_creation_container .User_profile .User_information{
+        width: 18%;
+        height: 100%;
+    }
+
+    .web_content{
+        width: 100%;
+        height: 92.6vh;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative; /* Dodaj pozycję względną, aby ustawić element img absolutnie */
+    }
+    
+    .web_content #visual {
+        display: none;
+    }
+
+    .web_content #visual_mobile{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    .web_content .task_container{
+        padding: .4rem;
+        width: 92% ;
+        height: 90%;
+        transform: translate(3%, 4% );
+        border-top-left-radius: 14px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        background: rgba(255, 255, 255, 0.101);
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 16px );
+    }
+    .web_content .Create_task {
+        padding: .15rem;
+        width: 100%;
+        height: 90px;
+        gap: 5px;
+
+    }
+    .web_content .Create_task .button_create_task{
+        padding: .7rem;
+        font-family: lexend;
+        font-weight: 700;
+        color: rgb(255, 255, 255);
+        border: none;
+        border-radius: .1rem;
+        background: linear-gradient(30deg, rgb(123, 54, 242) 0%, rgb(195, 54, 242) 100%);
+        transition: .2s ease-out;
+    }
+
+    
+    .task_input{
+        width: 80px;
+        height: 50px;
+    }
+    .web_content .Create_task .requirements {
+        width: 100%;
+        height: 60px;
+        margin-bottom: 10px;
+    
+    }
+    .web_content .Create_task .requirements .task_input {
+        border-radius: .52rem;
+        width: 95%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 1px solid lightgrey;
+        padding: .2rem;
+    
+    }
+    
+    .web_content .Create_task .requirements .task_input input{
+    
+        margin-left: 0px;
+        height: 30px;
+        font-size: 1.25rem;
+        border-radius: .52rem;
+        height: 62%;
+        width: 35%;
+        font-family: lexend;
+        text-align: center; /* Wyśrodkowanie tekstu w poziomie */
+        line-height: 30px; /* Równa wysokość dla wyśrodkowania w pionie */
+    
+    }
+    .web_content .Create_task #title{
+        font-size: 1.05rem;
+        font-family: lexend;
+        font-weight: 500;
+        color: #ffffff;
+        transform: translateX(20%);
+        
+    }
+    .web_content .Create_task #icon i{
+        font-size: 1.5rem;
+        cursor: pointer;
+        transform: rotate(0deg);
+        color: #ffffff;
+        transform: translate(-205%,-120%);
+    }
+    .web_content .task_container .Show_to_do_tasks{
+        margin-top: 1.2rem;
+        border: 1px dashed lightgrey;
+        display: inline-block;
+        padding: 1rem;
+        width: 90%;
+        height: 5%;
+        border-radius: .25rem;
+    }
+    .web_content .task_container .Show_to_do_tasks .To_do_tasks{
+        font-size: 1rem;
+        font-family: Inconsolata;
+    } 
+    .web_content .Done_tasks{
+        margin-top: .3rem;
+        border: 1px dashed lightgrey;
+        display: inline-block;
+        padding: 1rem;
+        width: 90%;
+        height: 5%;
+        border-radius: .25rem;
+    }
+    .web_content .Done_tasks .content_tasks{
+        font-size: 1rem;
+        font-family: Inconsolata;
+    }
+    .web_content .task_container .tasks{
+        display: inline-block;
+        padding: .5rem;
+        width: 95%;
+        height: 45%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        display: none;
+    
+    }
+    .web_content .show_done_tasks{
+        display: inline-block;
+        padding: .5rem;
+        width: 95%;
+        height: 45%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        display: none;
+    
+    }
+
+
+
+
+
+    :root {
+        --codepen-bg: #1d1e22;
+      }
+      
+    
+      
+      #btn{
+        margin-right: 0px;
+        margin-left: 0px;
+        height: 65px;
+        width: 90px;
+        border-radius: .8rem;
+        border: solid 3px white;
+        background-color: transparent;
+        cursor: pointer;
+        outline: none;
+        color: white;
+        font-size: 12px;
+        font-family: Bodoni MT, Bodoni 72, Didot, Didot LT STD, Hoefler Text, Garamond,
+          Times New Roman, serif;
+        
+      }
+      
+      .spark {
+        position: absolute;
+        width: 30px;
+        height: 8px;
+        border-radius: 3px;
+        background-color: white;
+        transform: none;
+        border: 1px solid black;
+      }
+      .heading a{
+        font-size: 1.7vh;
+        transform: translateX(-130%);
+    }
+    #pc_wave_svg{
+        display: none;
+    }
+    #mobile_wave_svg{
+        display: block;
+    }
+    #task_title{
+        font-size: .6rem;
+        width: 110px;
+        height: 45px;
+        overflow-wrap: break-word; /* Dla większej zgodności */
+        word-wrap: break-word; /* Dla starszych przeglądarek */
+        align-items: center;
+        justify-content: center;
+        text-align: center; /* Wyśrodkowanie tekstu w poziomie */
+        line-height: 30px; /* Równa wysokość dla wyśrodkowania w pionie */
+    }
+    /* #task_title:focus{
+        font-size: 1.3rem;
+    } */
+ }
+
+ 
+@media screen and (max-width: 390px){
+    .sign_up_page .sign_up_options .google .google_text{
+        font-size: 11.5px;
+    }
+    .login_page .login_options .google .google_text{
+        font-size: 11.5px;
+    }
+
+    .login_page {
+        width: 330px;
+        height: 555px;
+    }
+
+    .sign_up_page{
+        width: 330px;
+        height: 595px;
+    }
+
+    .sign_up_page .sign_up_options .sign_up_options_text{
+        font-size: 15px;
+    }
+    .login_page .login_options .login_options_text{
+        font-size: 17px;
+    }
+
+    .heading a{
+        font-size: 1.6vh;
+        transform: translateX(-130%);
+    }
+
+
+    
+    
+    .settings_page {
+        transform: translate(-50%, -50%);
+        width: 340px;
+        height: 680px;
+        border-radius: 25px;
+    
+    }
+    .main_settings_page{
+        transform: translate(-50%, -40%);
+        width: 380px;
+        height: 650px;
+        border-top-left-radius: 10%;
+        border-top-right-radius: 10%;
+        border-bottom-left-radius: 0%;
+        border-bottom-right-radius: 0%;
+        
+    }
+    
+    .themes_settings_page{
+        transform: translate(-50%, -40%);
+        width: 380px;
+        height: 650px;
+        border-top-left-radius: 10%;
+        border-top-right-radius: 10%;
+        border-bottom-left-radius: 0%;
+        border-bottom-right-radius: 0%;
+     
+    }
+    
+    .sound_page{
+        transform: translate(-50%, -40%);
+        width: 380px;
+        height: 650px;
+        border-top-left-radius: 10%;
+        border-top-right-radius: 10%;
+        border-bottom-left-radius: 0%;
+        border-bottom-right-radius: 0%;
+    }
+
+    .settings_page .settings_content .button_box button{
+        transform: translateY(-70%);
+    
+    }
+    .settings_page .settings_content #SaveTheProfileData button:hover{
+        background-color: #6b81fa;
+        cursor: pointer;
+        transform: none;
+    }
+
+    .login_title{
+        font-size: 27px;
+    }
+    .login_title .main_title span{
+        font-size: 15px;
+    }
+    .sign_up_title {
+        font-size: 24px;
+    }
+    .sign_up_info #sign_requirement .class_title{
+        font-size: .8rem;
+        color: #9694AB;
+    }
+
+    .heading{
+        height: 9%;
+    }
+    /* .heading .account_creation_container .User_profile .User_log_out{
+        transform: translateX(-1%);
+    } */
+    .web_content .Create_task #title{
+        font-size: .8rem;
+        transform: translateX(20%);
+        
+    }
+    .web_content .Create_task #icon i{
+        font-size: 1.5rem;
+        transform: translate(-65%,-120%);
+    }
+    
+
+}
