@@ -1962,12 +1962,17 @@ body{
         font-size: .7rem; /* Wielkość czcionki */
         margin-right: .7rem; /* Margines (góra/dół lewo/prawo) */
         border-radius: 7px; /* Zaokrąglenie krawędzi */
+        margin-top: 5%;
     }
     .sign_up{ 
         padding: 5px 19px; /* Wielkość paddingu (góra/dół lewo/prawo) */
         font-size: .7rem; /* Wielkość czcionki */
         border-radius: 7px; /* Zaokrąglenie krawędzi */
+        margin-top: 5%;
     }
+
+    
+
 
 
 
