@@ -1394,11 +1394,16 @@
                         const color_3 = table.data.product_entry_bg
 
                         var svg = document.getElementById('visual');
+                        var mobile_svg = document.getElementById('visual_mobile')
                         // Pobierz wszystkie elementy 'path' w SVG
                         var paths = svg.getElementsByTagName('path');
+                        var mobile_paths = mobile_svg.getElementsByTagName('path')
                         // Iteruj przez wszystkie ścieżki i zmień kolor stroke na czerwony
                         for (var i = 0; i < paths.length; i++) {
                             paths[i].setAttribute('stroke', `${color_3}`);
+                        }
+                        for (let i = 0; i < mobile_paths.length; i++){
+                            mobile_paths[i].setAttribute('stroke', color_3)
                         }
 
 
