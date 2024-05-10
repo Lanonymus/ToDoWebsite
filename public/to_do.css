@@ -2028,12 +2028,14 @@ body{
     
     
     .login {
+        margin-top: 5%;
         padding: 5px 19px; /* Wielkość paddingu (góra/dół lewo/prawo) */
         font-size: .7rem; /* Wielkość czcionki */
         margin-right: .7rem; /* Margines (góra/dół lewo/prawo) */
         border-radius: 7px; /* Zaokrąglenie krawędzi */
     }
     .sign_up{ 
+        margin-top: 5%;
         padding: 5px 19px; /* Wielkość paddingu (góra/dół lewo/prawo) */
         font-size: .7rem; /* Wielkość czcionki */
         border-radius: 7px; /* Zaokrąglenie krawędzi */
@@ -2409,7 +2411,7 @@ body{
         height: auto;
         display: flex;
         flex-direction: row;
-        font-size: .8rem;
+        font-size: .7rem;
         align-items: center;
         justify-content: center;
     }
@@ -2531,7 +2533,8 @@ body{
     
       .custom-checkbox span {
         margin-top: .2rem;
-        margin-left: 1rem;
+        margin-left: .5rem;
+        margin-right: .5rem;
         display: inline-block;
         width: 25px;
         height: 25px;
