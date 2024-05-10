@@ -1733,7 +1733,6 @@ body{
 
 #delete-button{
     display: inline-block;
-    transform: translateY(5px);
     margin-left: 20px;
     cursor: pointer;
 }
@@ -1926,7 +1925,7 @@ body{
     
     .heading{
         width: 100%;
-        height: 8%;
+        height: 9%;
         background: linear-gradient(to right, #6378f0, hsl(223, 100%, 78%)), url(Images/background.svg);
         background-size: cover, cover; /* pierwsza wartość dla gradientu, druga dla obrazu */
         display: flex;
@@ -1970,6 +1969,18 @@ body{
         border-radius: 7px; /* Zaokrąglenie krawędzi */
         margin-top: 5%;
     }
+
+    .task_text_box{
+        margin-left: 2vh;
+        width: 90%;
+        height: 40px;
+        display: flex;
+        word-wrap: break-word;
+        font-size: 16px;
+        align-items: center;
+        justify-content: center;
+    }
+
 
     
 
@@ -2165,9 +2176,6 @@ body{
     }
     
 
-   
-    
-    
     
     #cookies {
         position: fixed;
@@ -2354,8 +2362,19 @@ body{
         display: none;
     
     }
-
-
+    .zadanie{
+        display: flex;
+        width: 100%;
+        height: 45px;
+        border-bottom: 1px solid lightblue;
+        margin-bottom: 10px; /* Dodaj margines na dole każdego zadania */
+        border-radius: .15rem;
+        margin-right: 1.5rem;
+        align-items: center;
+        font-size: 1rem;
+        font-family: Gloria Hallelujah;
+        
+    }
 
 
 
