@@ -1486,15 +1486,22 @@
                 <span></span>
             </label>
 
-            <div>&nbsp;&nbsp;&nbsp;${task_name}&nbsp;&nbsp; <i class="fa-solid fa-pencil" id="name_icon" onclick="EditName(event)"></i> 
-                <lord-icon
-                    id="delete-button"
-                    class="trashcan"
-                    src="https://cdn.lordicon.com/skkahier.json"
-                    trigger="hover"
-                    style="width:27px;height:27px">
-                </lord-icon>
-            </div>`;
+            <div>
+                <div class="task_text_box" id="task_text_box_${zadanie_count}">
+                    <div id="only_text_box_${zadanie_count}_added_task">
+                        ${task_name}ㅤ
+                    </div> 
+
+                        <i class="fa-solid fa-pencil" id="name_icon" onclick="EditName(event)"></i> 
+                        <lord-icon
+                            id="delete-button"
+                            class="trashcan"
+                            src="https://cdn.lordicon.com/skkahier.json"
+                            trigger="hover"
+                            style="width:27px;height:27px">
+                        </lord-icon>
+                    </div>
+                </div>`;
             taskList.appendChild(newTask);
 
             var pencilIcon = newTask.querySelector("#name_icon");
@@ -1502,9 +1509,23 @@
                 event.stopPropagation(); // Zapobiegamy dalszej propagacji zdarzenia
                 EditName(event); // Wywołujemy funkcję EdytujNazwe() po kliknięciu na ikonkę ołówka
             };
+            
 
-
-
+            // Solution starts here
+            const textBox = document.getElementById(`only_text_box_${zadanie_count}_added_task`);
+            const maxFontSize = 16;
+            const maxHeight = 40; // The max height of the div
+            const maxWidth = 269 * 0.5; // The max width of the div (70% of the task_text_box width)
+            const containerArea = maxHeight * maxWidth; // Calculate the area of the container
+            const estimatedAreaPerChar = containerArea / task_name.length; // Estimate the area each character would occupy
+            let fontSize = Math.sqrt(estimatedAreaPerChar); // The square root of the area would give an approximation of the font size
+            if (fontSize > maxFontSize){
+                textBox.style.fontSize = maxFontSize + 'px';
+            }
+            else{
+                textBox.style.fontSize = fontSize + 'px';
+            }
+            // Solution ends here
             newTask.addEventListener('click', function(event) {
             toggleCheckbox(event, this);
         });
@@ -1998,17 +2019,40 @@
                         <span></span>
                     </label>
 
-                    <div>&nbsp;&nbsp;&nbsp;${task_name}&nbsp;&nbsp;<i class="fa-solid fa-pencil" id="name_icon" onclick="EditName(event)"></i>  
-                        <lord-icon
-                            id="delete-button"
-                            class="trashcan"
-                            src="https://cdn.lordicon.com/skkahier.json"
-                            trigger="hover"
-                            style="width:27px;height:27px">
-                        </lord-icon>
-                    </div>`;
+                    <div>
+                        <div class="task_text_box" id="task_text_box_${task.taskid}">
+                            <div id="only_text_box_${task.taskid}_toDo">
+                                ${task_name}   
+                            </div> 
+                                <i class="fa-solid fa-pencil" id="name_icon" onclick="EditName(event)"></i>  
+                                <lord-icon
+                                    id="delete-button"
+                                    class="trashcan"
+                                    src="https://cdn.lordicon.com/skkahier.json"
+                                    trigger="hover"
+                                    style="width:27px;height:27px">
+                                </lord-icon>
+                            </div>
+                        </div>`;
                     // Dodaj nowe zadanie do listy zadań
                     taskList.appendChild(newTask);
+                    
+                    // Solution starts here
+                    const textBox = document.getElementById(`only_text_box_${task.taskid}_toDo`);
+                    const maxFontSize = 16;
+                    const maxHeight = 40; // The max height of the div
+                    const maxWidth = 269 * 0.5; // The max width of the div (70% of the task_text_box width)
+                    const containerArea = maxHeight * maxWidth; // Calculate the area of the container
+                    const estimatedAreaPerChar = containerArea / task_name.length; // Estimate the area each character would occupy
+                    let fontSize = Math.sqrt(estimatedAreaPerChar); // The square root of the area would give an approximation of the font size
+                    if (fontSize > maxFontSize){
+                        textBox.style.fontSize = maxFontSize + 'px';
+                    }
+                    else{
+                        textBox.style.fontSize = fontSize + 'px';
+                    }
+                    // Solution ends here
+
                     zadanie_count +=1
                 })}
 
@@ -2019,45 +2063,67 @@
 
 
 
-        function displayBoughtProducts(tasks) {
-            if (tasks !== 'empty'){
-                const FinishedtaskList = document.getElementById("Show_Finished_Tasks");
-                FinishedtaskList.innerHTML = ''; // Wyczyść zawartość listy zadań przed dodaniem nowych zadań
+    function displayBoughtProducts(tasks) {
+    if (tasks !== 'empty') {
+        const FinishedtaskList = document.getElementById("Show_Finished_Tasks");
+        FinishedtaskList.innerHTML = '';
 
-                if (tasks){
-                tasks.forEach(task => {
-                    const newTask = document.createElement("div");
-                    const {taskId, task_name} = task;
+        if (tasks) {
+            tasks.forEach(task => {
+                const newTask = document.createElement("div");
+                const { taskId, task_name } = task;
 
-                    
-
-
-                    var checkboxId = 'checkbox_' + zadanie_count; // Tworzymy unikalny identyfikator checkboxa
-                    newTask.className = "zadanie";
-                    newTask.setAttribute('onclick', 'toggleCheckbox(event,this)');
-                    newTask.innerHTML = `
+                var checkboxId = 'checkbox_' + zadanie_count;
+                newTask.className = "zadanie";
+                newTask.setAttribute('onclick', 'toggleCheckbox(event,this)');
+                newTask.innerHTML = `
                     <label class="custom-checkbox">
                         <input type="checkbox" id="${checkboxId}" class="task_checkbox" data-task-id="${task.taskid}" hidden checked>
                         <span></span>
                     </label>
+                    <div>
+                        <div class="task_text_box" id="task_text_box_${task.taskid}">
+                            <div id="only_text_box_${task.taskid}_Finished">
+                                ${task_name}   
+                            </div>    
+                                <i class="fa-solid fa-pencil" id="name_icon" onclick="EditName(event)"></i>
+                                <lord-icon
+                                    id="delete-button"
+                                    class="trashcan"
+                                    src="https://cdn.lordicon.com/skkahier.json"
+                                    trigger="hover"
+                                    style="width:27px;height:27px">
+                                </lord-icon>
+                            </div>
+                        </div>`;
 
-                    <div>&nbsp;&nbsp;&nbsp;${task_name}&nbsp;&nbsp;<i class="fa-solid fa-pencil" id="name_icon" onclick="EditName(event)"></i>  
-                        <lord-icon
-                            id="delete-button"
-                            class="trashcan"
-                            src="https://cdn.lordicon.com/skkahier.json"
-                            trigger="hover"
-                            style="width:27px;height:27px">
-                        </lord-icon>
-                    </div>`;
-                    // Dodaj nowe zadanie do listy zadań
-                    FinishedtaskList.appendChild(newTask);
-                    zadanie_count +=1
-                })}
+                FinishedtaskList.appendChild(newTask);
 
-                // Zaktualizuj liczbę zadań
-                updateFinishedTaskCount()}
+                // Solution starts here
+                const textBox = document.getElementById(`only_text_box_${task.taskid}_Finished`);
+                const maxFontSize = 16;
+                const maxHeight = 40; // The max height of the div
+                const maxWidth = 269 * 0.5; // The max width of the div (70% of the task_text_box width)
+                const containerArea = maxHeight * maxWidth; // Calculate the area of the container
+                const estimatedAreaPerChar = containerArea / task_name.length; // Estimate the area each character would occupy
+                let fontSize = Math.sqrt(estimatedAreaPerChar); // The square root of the area would give an approximation of the font size
+                if (fontSize > maxFontSize){
+                    textBox.style.fontSize = maxFontSize + 'px';
+                }
+                else{
+                    textBox.style.fontSize = fontSize + 'px';
+                }
+                // Solution ends here
+                zadanie_count += 1;
+            })
         }
+
+        updateFinishedTaskCount();
+    }
+}
+
+
+
 
         const inputField = document.getElementById('task_title');
 
@@ -2067,13 +2133,11 @@
 
         inputField.addEventListener('blur', function() {
             this.style.fontSize = '0.7rem'; // Zmniejsz czcionkę po opuszczeniu pola input
+            setTimeout( () => {
+                inputField.value = ''
+            },300)
+            
         });
-
-
-
-
-
-
 
 
 
