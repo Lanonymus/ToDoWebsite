@@ -1249,8 +1249,9 @@ body{
 .settings_content .profile_img_box .profile_Username{
     font-size: 1.4rem;
     display: flex;
-    width: 150px;
+    width: 200px;
     justify-content: center;
+    align-items: center;
     
 }
 
@@ -1348,6 +1349,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    
 
 }
 .settings_page .settings_content #SaveTheProfileData button:hover{
@@ -1972,18 +1974,14 @@ body{
 
     .task_text_box{
         margin-left: 2vh;
-        width: 90%;
+        width: 285px;
         height: 40px;
         display: flex;
         word-wrap: break-word;
         font-size: 16px;
         align-items: center;
-        justify-content: center;
     }
-
-
     
-
 
 
 
@@ -2081,10 +2079,11 @@ body{
     }
     
     .heading .account_creation_container .User_profile .User_information{
-        width: 70%;
+        width: 60%;
         height: 90%;
         display: flex;
-        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     
     }
     .heading .account_creation_container .User_profile .User_log_out{
@@ -2103,13 +2102,12 @@ body{
         margin-right: 2px;
         border: 1px solid lightgrey;
     }
-    .heading .account_creation_container .User_profile .User_name {
-        font-size: 13.5px;
+    .heading .account_creation_container .User_profile .User_name{
+        font-size: 14px;
         letter-spacing: .6px;
-        margin-top: 12px;
-        max-width: 100%; /* Ograniczenie szerokości tekstu do maksymalnej szerokości kontenera */
-        min-width: 80px;
-        word-wrap: break-word; /* Przenoszenie tekstu do kolejnych linii, gdy przekracza szerokość kontenera */
+        width: 70px;
+        height: 20px;
+        margin-left: 10px;
     }
     .heading .account_creation_container .User_profile .User_email{
         display: none;
@@ -2208,10 +2206,6 @@ body{
     }
 
 
-    .heading .account_creation_container .User_profile .User_information{
-        width: 18%;
-        height: 100%;
-    }
 
     .web_content{
         width: 100%;
@@ -2508,9 +2502,12 @@ body{
         border-bottom-left-radius: 0%;
         border-bottom-right-radius: 0%;
     }
-
+    .settings_page .settings_content .button_box{
+        transform: translate(0%,-70%);
+    }
     .settings_page .settings_content .button_box button{
-        transform: translateY(-70%);
+        transform: translateY(0%);
+        margin-bottom: 125px;
     
     }
     .settings_page .settings_content #SaveTheProfileData button:hover{
@@ -2547,6 +2544,16 @@ body{
     .web_content .Create_task #icon i{
         font-size: 1.5rem;
         transform: translate(-65%,-120%);
+    }
+
+    .task_text_box{
+        margin-left: 2vh;
+        width: 250px;
+        height: 40px;
+        display: flex;
+        word-wrap: break-word;
+        font-size: 16px;
+        align-items: center;
     }
     
 
