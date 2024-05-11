@@ -165,11 +165,11 @@
                             <div class="settings_inputs">
                                 <div class="edit_email">
                                     <label class="main_info" for="edit_email">E-mail Adress</label>
-                                    <input id="edit_email" type="email" maxlength="27" required placeholder="example@gmail.com">
+                                    <input id="edit_email" type="email" maxlength="30" required placeholder="example@gmail.com">
                                 </div>
                                 <div class="edit_username">
                                     <label class="main_info" for="edit_name">Username</label>
-                                    <input id="edit_name" type="text" minlength="6" maxlength="12" required placeholder="Jacob G">
+                                    <input id="edit_name" type="text" minlength="3" maxlength="30" required placeholder="Jacob G">
                                 </div>
                                 <div class="edit_password">
                                     <label class="main_info" for="edit_pw">Password</label>
@@ -1202,6 +1202,28 @@
                         document.getElementById('edit_pw').value = data.User_password;
                         document.getElementById('User_name_profile').innerText = data.User_name
 
+                        
+                        let user_name_info = document.querySelector('.User_name')
+                        
+                        const task_name = data.User_name
+
+                        const textBox = user_name_info
+                        const maxFontSize = 14;
+                        const maxHeight = 18; // The max height of the div
+                        const maxWidth = 150 * 0.5; // The max width of the div (70% of the task_text_box width)
+                        const containerArea = maxHeight * maxWidth; // Calculate the area of the container
+                        const estimatedAreaPerChar = containerArea / task_name.length; // Estimate the area each character would occupy
+                        let fontSize = Math.sqrt(estimatedAreaPerChar); // The square root of the area would give an approximation of the font size
+                        if (fontSize > maxFontSize){
+                            textBox.style.fontSize = maxFontSize + 'px';
+                        }
+                        else{
+                            textBox.style.fontSize = fontSize + 'px';
+                        }
+                        // Solution ends here
+
+    
+
                         Account_Feedback.innerHTML = data.status; 
 
                         let checkmarkClone = checkmark.cloneNode(true);
@@ -1492,7 +1514,7 @@
                         ${task_name}ㅤ
                     </div> 
 
-                        <i class="fa-solid fa-pencil" id="name_icon" onclick="EditName(event)"></i> 
+                        <i class="fa-solid fa-pencil" data-task-id="${task.taskid}" id="name_icon" onclick="EditName(event)"></i> 
                         <lord-icon
                             id="delete-button"
                             class="trashcan"
@@ -1537,14 +1559,13 @@
 
 
         function EditName(event) {
-            var targetElement = event.target || event.srcElement; // Wybierz odpowiedni element, który został kliknięty
-            var taskNameElement = targetElement.parentNode; // Pobierz rodzica ikony ołówka, który zawiera nazwę zadania
-            var taskName = taskNameElement.textContent.trim(); // Pobierz bieżącą nazwę zadania i usuń ewentualne białe znaki na początku i końcu
-            var newTaskName = prompt("Edytuj nazwę zadania:", taskName); // Wyświetl okno dialogowe z prośbą o nową nazwę zadania
-            
-            
-            var checkbox = taskNameElement.parentNode.querySelector('input[type=checkbox]');
-            var taskId = checkbox.dataset.taskId; // Pobieramy identyfikator zadania z atrybutu data-task-id
+            var targetElement = event.target || event.srcElement;
+            console.log(targetElement);
+            var taskId = targetElement.dataset.taskId;
+            console.log(taskId);
+            var taskNameElement = targetElement.parentNode.parentNode.querySelector('.task_text_box');
+            var taskName = taskNameElement.textContent.trim();
+            var newTaskName = prompt("Edytuj nazwę zadania:", taskName);
 
             // Sprawdź, czy użytkownik wprowadził nową nazwę i czy nie nacisnął przycisku Anuluj
             if (newTaskName !== '' && newTaskName !== null) {
@@ -1556,48 +1577,49 @@
                 var trashcan = document.createElement("lord-icon");
                 trashcan.className = "trashcan";
                 trashcan.id = "delete-button";
-
                 trashcan.setAttribute("src", "https://cdn.lordicon.com/skkahier.json");
                 trashcan.setAttribute("trigger", "hover");
                 trashcan.setAttribute("style", "width: 27px; height: 27px;");
 
-                // Tworzymy nowy tekstowy węzeł z nową nazwą zadania
-                var newTaskNameTextNode = document.createTextNode(newTaskName);
-
                 // Czyścimy zawartość elementu zawierającego nazwę zadania
                 taskNameElement.innerHTML = '';
 
-                taskNameElement.appendChild(document.createTextNode('ㅤ')); // Dodajemy spację przed ikoną ołówka
                 // Dodajemy nowy tekst z nazwą zadania
-                taskNameElement.appendChild(newTaskNameTextNode);
-
+                taskNameElement.appendChild(document.createTextNode(newTaskName));
                 // Dodajemy ponownie ikonę ołówka do zmiany nazwy zadania
                 taskNameElement.appendChild(document.createTextNode('ㅤ')); // Dodajemy spację przed ikoną ołówka
                 taskNameElement.appendChild(pencilIcon);
-
                 taskNameElement.appendChild(document.createTextNode('ㅤ')); // Dodajemy spację przed trashcanem
                 taskNameElement.appendChild(trashcan);
 
-                checkbox.checked = !checkbox.checked; // Odwracamy stan zaznaczenia checkboxa
+                // Znajdź checkbox na podstawie taskId
+                var checkbox = document.querySelector(`input[data-task-id="${taskId}"]`);
 
-                fetch('/Edited-name-shopping',{
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        taskName: taskName,
-                        taskId: taskId,
-                        newTaskName: newTaskName
+                // Sprawdź, czy checkbox został znaleziony
+                if (checkbox) {
+                    // Zmień stan checkboxa na przeciwny
+                    checkbox.checked = !checkbox.checked;
+
+                    // Wykonaj żądanie HTTP z zaktualizowanym stanem zadania
+                    fetch('/Edited-name-shopping',{
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            taskName: taskName,
+                            taskId: taskId,
+                            newTaskName: newTaskName
+                        })
                     })
-                })
-                .then(response => {
-                    console.log(response.body);
-                })
-                
+                    .then(response => {
+                        console.log(response.body);
+                    })
+                    
 
-            }
+                }
         }
+    }
 
 
 
@@ -2024,7 +2046,7 @@
                             <div id="only_text_box_${task.taskid}_toDo">
                                 ${task_name}   
                             </div> 
-                                <i class="fa-solid fa-pencil" id="name_icon" onclick="EditName(event)"></i>  
+                                <i class="fa-solid fa-pencil" data-task-id="${task.taskid}" id="name_icon" onclick="EditName(event)"></i>  
                                 <lord-icon
                                     id="delete-button"
                                     class="trashcan"
@@ -2040,8 +2062,8 @@
                     // Solution starts here
                     const textBox = document.getElementById(`only_text_box_${task.taskid}_toDo`);
                     const maxFontSize = 16;
-                    const maxHeight = 40; // The max height of the div
-                    const maxWidth = 269 * 0.5; // The max width of the div (70% of the task_text_box width)
+                    const maxHeight = 20; // The max height of the div
+                    const maxWidth = 300 * 0.5; // The max width of the div (70% of the task_text_box width)
                     const containerArea = maxHeight * maxWidth; // Calculate the area of the container
                     const estimatedAreaPerChar = containerArea / task_name.length; // Estimate the area each character would occupy
                     let fontSize = Math.sqrt(estimatedAreaPerChar); // The square root of the area would give an approximation of the font size
@@ -2086,7 +2108,7 @@
                             <div id="only_text_box_${task.taskid}_Finished">
                                 ${task_name}   
                             </div>    
-                                <i class="fa-solid fa-pencil" id="name_icon" onclick="EditName(event)"></i>
+                                <i class="fa-solid fa-pencil" data-task-id="${task.taskid}" id="name_icon" onclick="EditName(event)"></i>
                                 <lord-icon
                                     id="delete-button"
                                     class="trashcan"
@@ -2103,7 +2125,7 @@
                 const textBox = document.getElementById(`only_text_box_${task.taskid}_Finished`);
                 const maxFontSize = 16;
                 const maxHeight = 40; // The max height of the div
-                const maxWidth = 269 * 0.5; // The max width of the div (70% of the task_text_box width)
+                const maxWidth = 300 * 0.5; // The max width of the div (70% of the task_text_box width)
                 const containerArea = maxHeight * maxWidth; // Calculate the area of the container
                 const estimatedAreaPerChar = containerArea / task_name.length; // Estimate the area each character would occupy
                 let fontSize = Math.sqrt(estimatedAreaPerChar); // The square root of the area would give an approximation of the font size
@@ -2138,11 +2160,6 @@
             },300)
             
         });
-
-
-
-
-
 
 
     </script>
