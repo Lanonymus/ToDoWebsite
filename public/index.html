@@ -206,12 +206,12 @@
                             <div class="settings_inputs">
                                 <div class="edit_email">
                                     <label class="main_info" for="edit_email">E-mail Adress</label>
-                                    <input id="edit_email" type="email" maxlength="27" required
+                                    <input id="edit_email" type="email" maxlength="30" required
                                         placeholder="example@gmail.com">
                                 </div>
                                 <div class="edit_username">
                                     <label class="main_info" for="edit_name">Username</label>
-                                    <input id="edit_name" type="text" minlength="6" maxlength="12" required
+                                    <input id="edit_name" type="text" minlength="3" maxlength="30" required
                                         placeholder="Jacob G">
                                 </div>
                                 <div class="edit_password">
@@ -658,7 +658,7 @@
                             </button>
                         </div>
                         <div class="Low_part">
-                            <input type="text" required id="task_title" placeholder="Podróż w góry?" maxlength="40">
+                            <input type="text" required id="task_title" placeholder="Podróż w góry?" maxlength="50">
                         </div>
                     </div>
                     <div class="task_input">
@@ -1443,6 +1443,25 @@
                 document.getElementById('edit_pw').value = data.User_password;
                 document.getElementById('User_name_profile').innerText = data.User_name
 
+                let user_name_info = document.querySelector('.User_name')
+                        
+                const task_name = data.User_name
+
+                const textBox = user_name_info
+                const maxFontSize = 14;
+                const maxHeight = 18; // The max height of the div
+                const maxWidth = 150 * 0.5; // The max width of the div (70% of the task_text_box width)
+                const containerArea = maxHeight * maxWidth; // Calculate the area of the container
+                const estimatedAreaPerChar = containerArea / task_name.length; // Estimate the area each character would occupy
+                let fontSize = Math.sqrt(estimatedAreaPerChar); // The square root of the area would give an approximation of the font size
+                if (fontSize > maxFontSize){
+                    textBox.style.fontSize = maxFontSize + 'px';
+                }
+                else{
+                    textBox.style.fontSize = fontSize + 'px';
+                }
+                // Solution ends here
+
                 Account_Feedback.innerHTML = data.status;
 
                 let checkmarkClone = checkmark.cloneNode(true);
@@ -1519,7 +1538,7 @@
         var tasks = document.querySelectorAll('#taskList .zadanie');
         var tasksArray = Array.from(tasks);
 
-        if (sort === 'Termin') {
+        if (sort === 'Terminu') {
             // SORTOWANIE WEDŁUG TERMINU Z KALENDARZA
             tasksArray.sort(function (a, b) {
                 var deadlineA = new Date(a.dataset.deadline);
@@ -1810,42 +1829,62 @@
         var checkboxId = 'checkbox_' + zadanie_count; // Tworzymy unikalny identyfikator checkboxa
         newTask.className = "zadanie";
         newTask.innerHTML = `
-            <label class="custom-checkbox">
-                        <input type="checkbox" id="${checkboxId}" class="task_checkbox" data-task-id="${zadanie_count}" hidden>
+                <label class="custom-checkbox">
+                        <input type="checkbox" class="task_checkbox" id="${checkboxId}" data-task-id="${zadanie_count}" hidden>
                         <span></span>
-            </label>
+                </label>
                     <div> 
                         <div class="task_text_box"> 
-                            ${task_name}<i class="fa-solid fa-pencil" id="name_icon" onclick="EditName(event)"></i> 
-                            <lord-icon
-                                id="delete-button"
-                                class="trashcan"
-                                src="https://cdn.lordicon.com/skkahier.json"
-                                trigger="hover"
-                                style="width:27px;height:27px">
-                            </lord-icon>
-                        </div>
-                        </div>  
-                    <div class="task_date_box">  
+                            <div id="only_text_box_${zadanie_count}_toDo">
+                                ${task_name}   
+                            </div>
+                                <i class="fa-solid fa-pencil"  data-task-id="${zadanie_count}" id="name_icon" onclick="EditName(event)"></i> 
+                                <lord-icon
+                                    id="delete-button"
+                                    class="trashcan"
+                                    src="https://cdn.lordicon.com/skkahier.json"
+                                    trigger="hover"
+                                    style="width:27px;height:27px">
+                                </lord-icon>
+                            </div>
+                        </div>   
+                    <div class="task_date_box"> 
                         <div>${Europe_Time}<i class="fa-solid fa-calendar-days"></i> </div>        
-                    </div>                   
+                    </div>                  
                     <div class="${priorityClass}" id="task_importance">${priorityLabel}</div>`;
-        taskList.appendChild(newTask);
+                    // Dodaj nowe zadanie do listy zadań
+                    taskList.appendChild(newTask);
 
-        // Dodajemy obsługę kliknięcia na ikonkę ołówka, aby zablokować funkcję toggleCheckbox()
-        var pencilIcon = newTask.querySelector("#name_icon");
-        pencilIcon.onclick = function (event) {
-            event.stopPropagation(); // Zapobiegamy dalszej propagacji zdarzenia
-            EditName(event); // Wywołujemy funkcję EdytujNazwe() po kliknięciu na ikonkę ołówka
-        };
+                     // Dodajemy obsługę kliknięcia na ikonkę ołówka, aby zablokować funkcję toggleCheckbox()
+                    var pencilIcon = newTask.querySelector("#name_icon");
+                    pencilIcon.onclick = function (event) {
+                        event.stopPropagation(); // Zapobiegamy dalszej propagacji zdarzenia
+                        EditName(event); // Wywołujemy funkcję EdytujNazwe() po kliknięciu na ikonkę ołówka
+                    };
 
-        newTask.addEventListener('click', function (event) {
-            toggleCheckbox(event, this);
-        });
+                    newTask.addEventListener('click', function (event) {
+                        toggleCheckbox(event, this);
+                    });
 
 
-        updateTaskCount();
-        addTaskToDatabase(zadanie_count, task_name, Europe_Time, priorityLabel)
+                    updateTaskCount();
+                    addTaskToDatabase(zadanie_count, task_name, Europe_Time, priorityLabel)
+
+                    // Solution starts here
+                    const textBox = document.getElementById(`only_text_box_${zadanie_count}_toDo`);
+                    const maxFontSize = 16;
+                    const maxHeight = 20; // The max height of the div
+                    const maxWidth = 400 * 0.5; // The max width of the div (70% of the task_text_box width)
+                    const containerArea = maxHeight * maxWidth; // Calculate the area of the container
+                    const estimatedAreaPerChar = containerArea / task_name.length; // Estimate the area each character would occupy
+                    let fontSize = Math.sqrt(estimatedAreaPerChar); // The square root of the area would give an approximation of the font size
+                    if (fontSize > maxFontSize){
+                        textBox.style.fontSize = maxFontSize + 'px';
+                    }
+                    else{
+                        textBox.style.fontSize = fontSize + 'px';
+                    }
+
         zadanie_count += 1
 
     }
@@ -2271,15 +2310,18 @@
                 </label>
                     <div> 
                         <div class="task_text_box"> 
-                            ${task_name}<i class="fa-solid fa-pencil"  data-task-id="${task.taskid}" id="name_icon" onclick="EditName(event)"></i> 
-                            <lord-icon
-                                id="delete-button"
-                                class="trashcan"
-                                src="https://cdn.lordicon.com/skkahier.json"
-                                trigger="hover"
-                                style="width:27px;height:27px">
-                            </lord-icon>
-                        </div>
+                            <div id="only_text_box_${task.taskid}_toDo">
+                                ${task_name}   
+                            </div>
+                                <i class="fa-solid fa-pencil"  data-task-id="${task.taskid}" id="name_icon" onclick="EditName(event)"></i> 
+                                <lord-icon
+                                    id="delete-button"
+                                    class="trashcan"
+                                    src="https://cdn.lordicon.com/skkahier.json"
+                                    trigger="hover"
+                                    style="width:27px;height:27px">
+                                </lord-icon>
+                            </div>
                         </div>   
                     <div class="task_date_box"> 
                         <div>${deadline}<i class="fa-solid fa-calendar-days"></i> </div>        
@@ -2287,6 +2329,23 @@
                     <div class="${priorityClass}" id="task_importance">${task_priority}</div>`;
                     // Dodaj nowe zadanie do listy zadań
                     taskList.appendChild(newTask);
+
+                    // Solution starts here
+                    const textBox = document.getElementById(`only_text_box_${task.taskid}_toDo`);
+                    const maxFontSize = 16;
+                    const maxHeight = 20; // The max height of the div
+                    const maxWidth = 400 * 0.5; // The max width of the div (70% of the task_text_box width)
+                    const containerArea = maxHeight * maxWidth; // Calculate the area of the container
+                    const estimatedAreaPerChar = containerArea / task_name.length; // Estimate the area each character would occupy
+                    let fontSize = Math.sqrt(estimatedAreaPerChar); // The square root of the area would give an approximation of the font size
+                    if (fontSize > maxFontSize){
+                        textBox.style.fontSize = maxFontSize + 'px';
+                    }
+                    else{
+                        textBox.style.fontSize = fontSize + 'px';
+                    }
+                    // Solution ends here
+
                     zadanie_count += 1
                 })
             }
@@ -2336,21 +2395,24 @@
                     newTask.className = "zadanie";
                     newTask.setAttribute('onclick', 'toggleCheckbox(event, this)');
                     newTask.innerHTML = `
-            <label class="custom-checkbox">
-                        <input type="checkbox" id="${checkboxId}" class="task_checkbox" data-task-id="${task.taskid}" hidden checked>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" class="task_checkbox" id="${checkboxId}" data-task-id="${task.taskid}" hidden checked>
                         <span></span>
                 </label>
-                     <div> 
+                    <div> 
                         <div class="task_text_box"> 
-                            ${task_name}<i class="fa-solid fa-pencil" id="name_icon" data-task-id="${task.taskid}" onclick="EditName(event)"></i> 
-                            <lord-icon
-                                id="delete-button"
-                                class="trashcan"
-                                src="https://cdn.lordicon.com/skkahier.json"
-                                trigger="hover"
-                                style="width:27px;height:27px">
-                            </lord-icon>
-                        </div>
+                            <div id="only_text_box_${task.taskid}_toDo">
+                                ${task_name}   
+                            </div>
+                                <i class="fa-solid fa-pencil"  data-task-id="${task.taskid}" id="name_icon" onclick="EditName(event)"></i> 
+                                <lord-icon
+                                    id="delete-button"
+                                    class="trashcan"
+                                    src="https://cdn.lordicon.com/skkahier.json"
+                                    trigger="hover"
+                                    style="width:27px;height:27px">
+                                </lord-icon>
+                            </div>
                         </div>   
                     <div class="task_date_box"> 
                         <div>${deadline}<i class="fa-solid fa-calendar-days"></i> </div>        
@@ -2358,6 +2420,23 @@
                     <div class="${priorityClass}" id="task_importance">${task_priority}</div>`;
                     // Dodaj nowe zadanie do listy zadań
                     FinishedtaskList.appendChild(newTask);
+
+                    // Solution starts here
+                    const textBox = document.getElementById(`only_text_box_${task.taskid}_toDo`);
+                    const maxFontSize = 16;
+                    const maxHeight = 20; // The max height of the div
+                    const maxWidth = 400 * 0.5; // The max width of the div (70% of the task_text_box width)
+                    const containerArea = maxHeight * maxWidth; // Calculate the area of the container
+                    const estimatedAreaPerChar = containerArea / task_name.length; // Estimate the area each character would occupy
+                    let fontSize = Math.sqrt(estimatedAreaPerChar); // The square root of the area would give an approximation of the font size
+                    if (fontSize > maxFontSize){
+                        textBox.style.fontSize = maxFontSize + 'px';
+                    }
+                    else{
+                        textBox.style.fontSize = fontSize + 'px';
+                    }
+                    // Solution ends here
+
                     zadanie_count += 1
                 })
             }
