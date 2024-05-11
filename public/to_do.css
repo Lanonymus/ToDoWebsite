@@ -1638,7 +1638,7 @@ body{
 }
 
 .task_date_box{
-    width: 20vh;
+    width: 15vh;
     height: auto;
     display: flex;
     flex-direction: row;
