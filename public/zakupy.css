@@ -25,6 +25,11 @@ body{
     margin-left: 10px;
 }
 
+.heading .active{
+    margin-left: 5rem;
+
+}
+
 .painting:hover{
     cursor: pointer;
 }
@@ -1506,11 +1511,14 @@ body{
 
 .heading .account_creation_container .User_profile .login_icon{
     display: block;
-    width: 65px;
-    height: 65px;
+    width: 46px;
+    height: 46px;
     border-radius: 50%;
     background: url(Images/profile_icon.svg);
     background-size: cover;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: 2px solid lightgray;
 }
 
 
@@ -1535,14 +1543,14 @@ body{
 
 
 
-.web_content {
+.web_content{
     width: 100%;
     height: 92.6vh;
+    background-color: rgb(255, 255, 255);
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative; /* Dodaj pozycję względną, aby ustawić element img absolutnie */
-    background-color: white;
 }
 
 .web_content #visual {
@@ -1556,15 +1564,15 @@ body{
     padding: 2rem;
     width: 80% ;
     height: 80%;
-    
     background: rgba( 255, 255, 255, 0.35 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 100px );
-    -webkit-backdrop-filter: blur( 100px );
-    border-radius: 10px;
+    backdrop-filter: blur( 32px );
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
-    /* background: linear-gradient(to right, #67c5ff, rgb(201, 227, 255)); */
-    
+
 }
 
 .web_content .Create_task {
@@ -1651,6 +1659,10 @@ body{
     justify-content: center;
     border: 1px solid lightgrey;
 
+}
+
+.web_content #visual_mobile{
+    display: none;
 }
 
 
@@ -2195,12 +2207,6 @@ body{
         display: none;
     }
 
-    .web_content #visual_mobile{
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        display: block;
-    }
     .heading a{
         font-size: 2vh;
     }
@@ -2240,6 +2246,7 @@ body{
         background: rgba(255, 255, 255, 0.101);
         box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
         backdrop-filter: blur( 16px );
+
     }
     .web_content .Create_task {
         padding: .15rem;
