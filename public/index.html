@@ -1443,14 +1443,17 @@
                 document.getElementById('edit_pw').value = data.User_password;
                 document.getElementById('User_name_profile').innerText = data.User_name
 
-                let user_name_info = document.querySelector('.User_name')
+                let user_name_info = document.querySelector('.User_name');
+                let user_name_box = getComputedStyle(user_name_info).width;
+                let user_name_maxHeight= parseFloat(getComputedStyle(user_name_info).maxHeight)
+                user_name_box = parseFloat(user_name_box)
                         
                 const task_name = data.User_name
 
                 const textBox = user_name_info
-                const maxFontSize = 14;
-                const maxHeight = 18; // The max height of the div
-                const maxWidth = 150 * 0.5; // The max width of the div (70% of the task_text_box width)
+                const maxFontSize = 30;
+                const maxHeight = user_name_maxHeight; // The max height of the div
+                const maxWidth = user_name_box ; // The max width of the div (70% of the task_text_box width)
                 const containerArea = maxHeight * maxWidth; // Calculate the area of the container
                 const estimatedAreaPerChar = containerArea / task_name.length; // Estimate the area each character would occupy
                 let fontSize = Math.sqrt(estimatedAreaPerChar); // The square root of the area would give an approximation of the font size
@@ -1870,20 +1873,17 @@
                     updateTaskCount();
                     addTaskToDatabase(zadanie_count, task_name, task_time, priorityLabel)
 
-                    // Solution starts here
+                    let task_text_box = newTask.querySelector('.task_text_box');
+                    let task_text_box_width = parseFloat(getComputedStyle(task_text_box).width);
+                    let task_text_box_maxHeight = parseFloat(getComputedStyle(task_text_box).maxHeight);
+                    
                     const textBox = document.getElementById(`only_text_box_${zadanie_count}_toDo`);
-                    const maxFontSize = 16;
-                    const maxHeight = 20; // The max height of the div
-                    const maxWidth = 400 * 0.5; // The max width of the div (70% of the task_text_box width)
-                    const containerArea = maxHeight * maxWidth; // Calculate the area of the container
-                    const estimatedAreaPerChar = containerArea / task_name.length; // Estimate the area each character would occupy
-                    let fontSize = Math.sqrt(estimatedAreaPerChar); // The square root of the area would give an approximation of the font size
-                    if (fontSize > maxFontSize){
-                        textBox.style.fontSize = maxFontSize + 'px';
-                    }
-                    else{
-                        textBox.style.fontSize = fontSize + 'px';
-                    }
+                    adjustFontSize(textBox, task_text_box_width, task_text_box_maxHeight, task_name);
+
+                    // Solution ends here
+
+
+                // Solution ends here
 
         zadanie_count += 1
 
@@ -2279,6 +2279,7 @@
                 tasks.forEach(task => {
                     const newTask = document.createElement("div");
                     const { taskId, task_name, task_deadline, task_priority } = task;
+                    console.log(task.taskid);
 
 
                     // Przekształć datę na czytelny format
@@ -2302,9 +2303,9 @@
                     }
                     var checkboxId = 'checkbox_' + zadanie_count; // Tworzymy unikalny identyfikator checkboxa
                     newTask.className = "zadanie";
-                    newTask.setAttribute('onclick', 'toggleCheckbox(event,this)');
+                    newTask.setAttribute('onclick', 'toggleCheckbox(event, this)');
                     newTask.innerHTML = `
-                <label class="custom-checkbox">
+                    <label class="custom-checkbox">
                         <input type="checkbox" class="task_checkbox" id="${checkboxId}" data-task-id="${task.taskid}" hidden>
                         <span></span>
                 </label>
@@ -2328,22 +2329,19 @@
                     </div>                  
                     <div class="${priorityClass}" id="task_importance">${task_priority}</div>`;
                     // Dodaj nowe zadanie do listy zadań
+
+                    
                     taskList.appendChild(newTask);
 
                     // Solution starts here
+                    let task_text_box = newTask.querySelector('.task_text_box');
+                    let task_text_box_width = parseFloat(getComputedStyle(task_text_box).width);
+                    let task_text_box_maxHeight = parseFloat(getComputedStyle(task_text_box).maxHeight);
+                    
                     const textBox = document.getElementById(`only_text_box_${task.taskid}_toDo`);
-                    const maxFontSize = 16;
-                    const maxHeight = 20; // The max height of the div
-                    const maxWidth = 400 * 0.5; // The max width of the div (70% of the task_text_box width)
-                    const containerArea = maxHeight * maxWidth; // Calculate the area of the container
-                    const estimatedAreaPerChar = containerArea / task_name.length; // Estimate the area each character would occupy
-                    let fontSize = Math.sqrt(estimatedAreaPerChar); // The square root of the area would give an approximation of the font size
-                    if (fontSize > maxFontSize){
-                        textBox.style.fontSize = maxFontSize + 'px';
-                    }
-                    else{
-                        textBox.style.fontSize = fontSize + 'px';
-                    }
+                    adjustFontSize(textBox, task_text_box_width, task_text_box_maxHeight, task_name);
+
+
                     // Solution ends here
 
                     zadanie_count += 1
@@ -2422,19 +2420,12 @@
                     FinishedtaskList.appendChild(newTask);
 
                     // Solution starts here
+                    let task_text_box = newTask.querySelector('.task_text_box');
+                    let task_text_box_width = parseFloat(getComputedStyle(task_text_box).width);
+                    let task_text_box_maxHeight = parseFloat(getComputedStyle(task_text_box).maxHeight);
+                    
                     const textBox = document.getElementById(`only_text_box_${task.taskid}_toDo`);
-                    const maxFontSize = 16;
-                    const maxHeight = 20; // The max height of the div
-                    const maxWidth = 400 * 0.5; // The max width of the div (70% of the task_text_box width)
-                    const containerArea = maxHeight * maxWidth; // Calculate the area of the container
-                    const estimatedAreaPerChar = containerArea / task_name.length; // Estimate the area each character would occupy
-                    let fontSize = Math.sqrt(estimatedAreaPerChar); // The square root of the area would give an approximation of the font size
-                    if (fontSize > maxFontSize){
-                        textBox.style.fontSize = maxFontSize + 'px';
-                    }
-                    else{
-                        textBox.style.fontSize = fontSize + 'px';
-                    }
+                    adjustFontSize(textBox, task_text_box_width, task_text_box_maxHeight, task_name);
                     // Solution ends here
 
                     zadanie_count += 1
@@ -2524,6 +2515,21 @@
 
         document.body.append(div);
     };
+
+
+    function adjustFontSize(textBox, task_text_box_width, task_text_box_maxHeight, task_name) {
+        const maxFontSize = 25;
+        const maxHeight = task_text_box_maxHeight;
+        const maxWidth = task_text_box_width * 0.5;
+        const containerArea = maxHeight * maxWidth;
+        const estimatedAreaPerChar = containerArea / task_name.length;
+        let fontSize = Math.sqrt(estimatedAreaPerChar);
+        if (fontSize > maxFontSize) {
+            textBox.style.fontSize = maxFontSize + 'px';
+        } else {
+            textBox.style.fontSize = fontSize + 'px';
+        }
+}
 
 
 
