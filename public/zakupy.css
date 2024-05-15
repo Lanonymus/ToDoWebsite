@@ -1495,7 +1495,7 @@ body{
     font-family: lexend;
     font-weight: 500;
     height: 85%;
-    transform: translateX(-1%);
+    transform: translateX(-0.5%);
 
 
 }
@@ -1523,10 +1523,15 @@ body{
 
 
 .heading .account_creation_container .User_profile .User_name{
-    font-size: 22px;
+    font-size: 14px;
     font-family: lexend;
     color: black;
     letter-spacing: 1px;
+    width: 200px;
+    max-height: 30px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+
 }
 .heading .account_creation_container .User_profile .User_email{
     font-size: 11.7px;
@@ -2124,11 +2129,10 @@ body{
         border: 1px solid lightgrey;
     }
     .heading .account_creation_container .User_profile .User_name{
-        font-size: 14px;
+        font-size: 13.5px;
         letter-spacing: .6px;
         width: 70px;
-        height: 20px;
-        margin-left: 10px;
+        max-height: 20px;
     }
     .heading .account_creation_container .User_profile .User_email{
         display: none;
@@ -2181,7 +2185,6 @@ body{
         border-top-right-radius: 10%;
         border-bottom-left-radius: 0%;
         border-bottom-right-radius: 0%;
-     
     }
     
     .sound_page{
