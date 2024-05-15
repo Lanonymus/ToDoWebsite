@@ -1638,7 +1638,6 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid red;
 }
 
 .task_date_box{
@@ -2407,7 +2406,6 @@ body{
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid red;
     }
     
     .task_date_box{
