@@ -1203,14 +1203,17 @@
                         document.getElementById('User_name_profile').innerText = data.User_name
 
                         
-                        let user_name_info = document.querySelector('.User_name')
-                        
+                        let user_name_info = document.querySelector('.User_name');
+                        let user_name_box = getComputedStyle(user_name_info).width;
+                        let user_name_maxHeight= parseFloat(getComputedStyle(user_name_info).maxHeight)
+                        user_name_box = parseFloat(user_name_box)
+                                
                         const task_name = data.User_name
 
                         const textBox = user_name_info
-                        const maxFontSize = 14;
-                        const maxHeight = 18; // The max height of the div
-                        const maxWidth = 150 * 0.5; // The max width of the div (70% of the task_text_box width)
+                        const maxFontSize = 30;
+                        const maxHeight = user_name_maxHeight; // The max height of the div
+                        const maxWidth = user_name_box ; // The max width of the div (70% of the task_text_box width)
                         const containerArea = maxHeight * maxWidth; // Calculate the area of the container
                         const estimatedAreaPerChar = containerArea / task_name.length; // Estimate the area each character would occupy
                         let fontSize = Math.sqrt(estimatedAreaPerChar); // The square root of the area would give an approximation of the font size
@@ -2147,6 +2150,7 @@
 
 
 
+
         const inputField = document.getElementById('task_title');
 
         inputField.addEventListener('input', function() {
@@ -2160,6 +2164,8 @@
             },300)
             
         });
+
+        
 
 
     </script>
